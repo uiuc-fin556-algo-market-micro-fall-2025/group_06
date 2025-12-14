@@ -12,7 +12,7 @@ endif
 
 USER=youchun2
 LIBPATH=/home/$(USER)/ss/sdk/RCM/StrategyStudio/libs/x64/
-INCLUDES=-I/usr/include -I/home/$(USER)/ss/sdk/RCM/StrategyStudio/includes
+INCLUDES=-I/usr/include -I/home/$(USER)/ss/sdk/RCM/StrategyStudio/includes -I../past-project
 LDFLAGS=$(LIBPATH)/libstrategystudio_analytics.a $(LIBPATH)/libstrategystudio.a $(LIBPATH)/libstrategystudio_transport.a $(LIBPATH)/libstrategystudio_marketmodels.a $(LIBPATH)/libstrategystudio_utilities.a $(LIBPATH)/libstrategystudio_flashprotocol.a
 
 # Define the names of the library, source, and header files.

@@ -1,0 +1,149 @@
+Setting resource limits...
+Resource limits set.
+Step 0: Cleaning and building the strategy...
+Makefile:31: warning: ignoring prerequisites on suffix rule definition
+rm -rf *.o HybridSignalStrategy.so
+Makefile:31: warning: ignoring prerequisites on suffix rule definition
+g++ -c -fPIC -fpermissive -O3 -std=c++11 -I/usr/include -I/home/junup2/ss/sdk/RCM/StrategyStudio/includes HybridSignalStrategy.cpp -o HybridSignalStrategy.o
+g++ -shared -Wl,-soname,HybridSignalStrategy.so.1 -o HybridSignalStrategy.so HybridSignalStrategy.o /home/junup2/ss/sdk/RCM/StrategyStudio/libs/x64//libstrategystudio_analytics.a /home/junup2/ss/sdk/RCM/StrategyStudio/libs/x64//libstrategystudio.a /home/junup2/ss/sdk/RCM/StrategyStudio/libs/x64//libstrategystudio_transport.a /home/junup2/ss/sdk/RCM/StrategyStudio/libs/x64//libstrategystudio_marketmodels.a /home/junup2/ss/sdk/RCM/StrategyStudio/libs/x64//libstrategystudio_utilities.a /home/junup2/ss/sdk/RCM/StrategyStudio/libs/x64//libstrategystudio_flashprotocol.a
+Build successful!
+Step 0 completed.
+Step 1: Deploying HybridSignalStrategy.so to the DLLs directory...
+Step 1 completed.
+Step 2: Starting the Strategy Server...(closing existing servers and command lines)
+Error occurred on connection: Connection refused
+Could not connect to server
+Checking for existing StrategyServerBacktesting process...
+No existing process found.
+Initializing Strategy Studio Backtesting Server...
+Initializing Strategy Server...
+PROCESSOR_LOG_LEVEL configured as DEBUG
+Strategy Studio Server v 3.4.0.0
+Protocol Version v21.0
+Recovery mode disabled.
+Loading corporate action adapter dll /home/junup2/ss/bt/./corporate_action_adapters/TextCorporateActionAdapter.so...
+Loading instrument information from reference database...
+Loading equity instruments...
+Finished loading 0 equity instruments from reference database.
+Loading futures instruments...
+Finished loading 0 futures instruments from reference database.
+Loading options instruments...
+Finished loading 0 option instruments from reference database.
+Loading spot currency pair instruments...
+Finished loading 0 spot currency pairs from reference database.
+Loading bond instruments...
+Finished loading 0 bond instruments from reference database.
+Finished loading instrument information from reference database.
+Starting Seq Num = 1
+Loading strategy dll /home/junup2/ss/bt/strategies_dlls/Junup2.so...
+Found new strategy type info for strategy Junup2Strategy
+Loaded strategy type Junup2Strategy from strategy DLL.
+Loading strategy dll /home/junup2/ss/bt/strategies_dlls/DiaIndexArb.so...
+Found new strategy type info for strategy DiaIndexArbStrategy
+Loaded strategy type DiaIndexArbStrategy from strategy DLL.
+Loading strategy dll /home/junup2/ss/bt/strategies_dlls/HybridSignalStrategy.so...
+Found new strategy type info for strategy HybridSignalStrategy
+Loaded strategy type HybridSignalStrategy from strategy DLL.
+Loading backtest reader library /home/junup2/ss/bt/./backtester-readers/MorningstarTickAdapter.so...
+Loading backtest reader library /home/junup2/ss/bt/./backtester-readers/OneTickAdapter.so...
+Loading backtest reader library /home/junup2/ss/bt/./backtester-readers/NomuraTickReader.so...
+Loading backtest reader library /home/junup2/ss/bt/./backtester-readers/TextTickReader.so...
+Loading backtest reader library /home/junup2/ss/bt/./backtester-readers/NanexAdapter.so...
+Loading backtest reader library /home/junup2/ss/bt/./backtester-readers/KDBAdapter.so...
+Loading backtest reader library /home/junup2/ss/bt/./backtester-readers/TickDataDotComAdapter.so...
+Loading backtest reader library /home/junup2/ss/bt/./backtester-readers/LMAXAdapter.so...
+Application state changed to STATE_APP_INITIALIZED
+Strategy Server initialized...
+Starting Strategy Studio Backtesting Server...
+Starting Strategy Server...
+Application state changed to STATE_APP_STARTING
+Application state changed to STATE_MARKET_OPENING
+Acceptor thread started.
+Application state changed to STATE_RUNNING
+Strategy Server started...
+Running Strategy Studio Backtesting Server...
+Command line disabled. Type CTRL-C to end.
+Strategy Server started with PID 1097707.
+Step 2 completed.
+Step 3: Creating a strategy instance...
+Terminating existing instance (if any)...
+Login received from connection id 0
+
+Attempting to terminate Hybrid
+Strategy id = 10 with name = Hybrid was terminated.
+
+Quitting.
+Connection id 0 finished.
+Connection id 1 finished.
+Creating a new strategy instance...
+Login received from connection id 1
+Strategy Hybrid added to processor 0.
+
+Quitting.
+Connection id 1 finished.
+Connection id 1 finished.
+Login received from connection id 2
+
+Quitting.
+Connection id 2 finished.
+Connection id 1 finished.
+Login received from connection id 3
+
+Received Strategy Studio exception on commandline: Unhandled command: set_param Hybrid debug true
+
+Quitting.
+Connection id 3 finished.
+Connection id 1 finished.
+Listing all strategy instances...
+Login received from connection id 4
+
+--Strategy Instance List--
+Junup2InstanceTwoStrategy
+Hybrid
+Junup2InstanceOneStrategy
+TestJunup2Strategy
+TestOneDiaIndexArbStrategy
+----------------------------
+
+
+Quitting.
+Connection id 4 finished.
+Connection id 1 finished.
+Step 3 completed.
+Step 4: Starting the backtest...
+Start Date: 2019-09-13
+End Date: 2019-09-13
+Login received from connection id 5
+Starting backtest experiment 1 running 1 strategy with start date 2019-Sep-13 and end date 2019-Sep-13
+DataSourceMgr::BuildDataSource: Received request to build data source BacktesterReader for processor id 1
+
+Quitting.
+Started backtest experiment 1 with start date 2019-Sep-13 and end date 2019-Sep-13
+Connection id 5 finished.
+Connection id 1 finished.
+Monitoring backtest progress...
+Waiting for strategy to finish... Current log line: 668
+
+
+Text Backtest experiment 1 completed in 1.23664 secsand processed 216122 ticks for a throughput of 174766 ticks per second
+Backtest experiment 1 finished.
+Waiting for strategy to finish... Current log line: 782
+Backtest completed.
+Step 4 completed.
+Step 5: Exporting CRA file to CSV...
+Detected CRA file: /home/junup2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_084255_start_09-13-2019_end_09-13-2019.cra
+Login received from connection id 6
+
+export successful
+
+Quitting.
+Connection id 6 finished.
+Connection id 1 finished.
+CRA file exported to /home/junup2/ss/bt/backtesting-results/csv_files.
+Moving CSV files to the output directory...
+Step 5 completed.
+Copying log file to local directory...
+Step 6: Terminating the Strategy Server...
+Strategy Server terminated.
+Step 6 completed.
+Script execution completed successfully!
