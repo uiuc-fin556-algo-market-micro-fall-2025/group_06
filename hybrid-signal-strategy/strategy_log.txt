@@ -1421,3 +1421,255 @@ DEBUG 2025-Dec-14 23:00:42.298158 OnLoginRequest received for connID = 5
 INFO 2025-Dec-14 23:00:42.298678 Console Command Issued: export_cra_file /home/youchun2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_230022_start_09-13-2019_end_09-13-2019.cra /home/youchun2/ss/bt/backtesting-results/csv_files
 INFO 2025-Dec-14 23:00:42.411668 export_cra_file /home/youchun2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_230022_start_09-13-2019_end_09-13-2019.cra completed successfully. 
 INFO 2025-Dec-14 23:00:42.412493 Client connection 5:  Received logout request
+DEBUG 2025-Dec-14 23:09:03.623700 Initializing Strategy Server...
+DEBUG 2025-Dec-14 23:09:03.625042 PRIMARY_ADAPTER: LimeAdapter
+INFO 2025-Dec-14 23:09:03.625068 PROCESSOR_LOG_LEVEL configured as DEBUG
+INFO 2025-Dec-14 23:09:03.625091 LOGS_DAYS_TO_KEEP configured as 0
+INFO 2025-Dec-14 23:09:03.625441 Strategy Studio Server v 3.4.0.0
+INFO 2025-Dec-14 23:09:03.625457 Protocol Version v21.0
+DEBUG 2025-Dec-14 23:09:03.625665 Starting DatabaseMgr...
+DEBUG 2025-Dec-14 23:09:03.627743 Init timekeeper...
+DEBUG 2025-Dec-14 23:09:03.627755 Init OrderIDMgr...
+DEBUG 2025-Dec-14 23:09:03.628101 Init ExecProviders table...
+DEBUG 2025-Dec-14 23:09:03.628112 Init initcorporateactionsloader...
+DEBUG 2025-Dec-14 23:09:03.628960 Init readexchangesfile...
+INFO 2025-Dec-14 23:09:03.629059 Could not open param file exchanges.txt
+DEBUG 2025-Dec-14 23:09:03.629073 Init market center fees...
+DEBUG 2025-Dec-14 23:09:03.629083 Unable to open MarketCenterFees file fees_BACKTESTING.txt
+DEBUG 2025-Dec-14 23:09:03.629084 Init initinstrumentmgr...
+DEBUG 2025-Dec-14 23:09:03.630156 Reading holidays.txt file...
+DEBUG 2025-Dec-14 23:09:03.630172 Init initprocessors...
+INFO 2025-Dec-14 23:09:03.632237 MessageStore::Init:  Opened pstore: ./pstore/StrategyServer_20251214.store
+DEBUG 2025-Dec-14 23:09:03.632253 Init initclientmanager...
+INFO 2025-Dec-14 23:09:03.634806 Loading strategy dll /home/youchun2/ss/bt/strategies_dlls/SMAReactiveTakerStrategy.so ...
+INFO 2025-Dec-14 23:09:03.634934 Server loaded new strategy type SMAReactiveTakerStrategy
+INFO 2025-Dec-14 23:09:03.634984 Loaded strategy type SMAReactiveTakerStrategy from strategy DLL.
+INFO 2025-Dec-14 23:09:03.636913 Loading strategy dll /home/youchun2/ss/bt/strategies_dlls/Youchun2Strategy.so ...
+INFO 2025-Dec-14 23:09:03.637006 Server loaded new strategy type Youchun2Strategy
+INFO 2025-Dec-14 23:09:03.637059 Loaded strategy type Youchun2Strategy from strategy DLL.
+INFO 2025-Dec-14 23:09:03.638903 Loading strategy dll /home/youchun2/ss/bt/strategies_dlls/DiaIndexArb.so ...
+INFO 2025-Dec-14 23:09:03.638987 Server loaded new strategy type DiaIndexArbStrategy
+INFO 2025-Dec-14 23:09:03.639029 Loaded strategy type DiaIndexArbStrategy from strategy DLL.
+INFO 2025-Dec-14 23:09:03.640999 Loading strategy dll /home/youchun2/ss/bt/strategies_dlls/HybridSignalStrategy.so ...
+INFO 2025-Dec-14 23:09:03.641160 Server loaded new strategy type HybridSignalStrategy
+INFO 2025-Dec-14 23:09:03.641245 Loaded strategy type HybridSignalStrategy from strategy DLL.
+INFO 2025-Dec-14 23:09:03.643110 Loading strategy dll /home/youchun2/ss/bt/strategies_dlls/MacroStrategy.so ...
+ERROR 2025-Dec-14 23:09:03.643242 StrategyStudioException thrown in StrategyFactory::LoadStrategyDLLInfo(/home/youchun2/ss/bt/strategies_dlls/MacroStrategy.so): Invalid strategy object type!.
+DEBUG 2025-Dec-14 23:09:03.643458 Init firm position tracker...
+DEBUG 2025-Dec-14 23:09:03.643470 Init initexechandler...
+DEBUG 2025-Dec-14 23:09:03.643706 Init strategy_factory_.LoadStrategiesFromStrategyInstanceTable...
+DEBUG 2025-Dec-14 23:09:03.644037 Init strategies...
+DEBUG 2025-Dec-14 23:09:03.644085 AddStrategyInstance: Building strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+INFO 2025-Dec-14 23:09:03.644109 Strategy TestOneDiaIndexArbStrategy added to processor 0.
+INFO 2025-Dec-14 23:09:03.644256 Successfully initialized strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+DEBUG 2025-Dec-14 23:09:03.644328 AddStrategyInstance: Building strategy Taker with type SMAReactiveTakerStrategy
+INFO 2025-Dec-14 23:09:03.644348 Strategy Taker added to processor 0.
+INFO 2025-Dec-14 23:09:03.644472 Successfully initialized strategy Taker with type SMAReactiveTakerStrategy
+DEBUG 2025-Dec-14 23:09:03.644540 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 23:09:03.644558 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 23:09:03.644713 Successfully initialized strategy Hybrid with type HybridSignalStrategy
+DEBUG 2025-Dec-14 23:09:03.644779 AddStrategyInstance: Building strategy MyYouchun2Instance with type Youchun2Strategy
+INFO 2025-Dec-14 23:09:03.644802 Strategy MyYouchun2Instance added to processor 0.
+INFO 2025-Dec-14 23:09:03.644871 Successfully initialized strategy MyYouchun2Instance with type Youchun2Strategy
+DEBUG 2025-Dec-14 23:09:03.644916 AddStrategyInstance: Building strategy test_instance with type Youchun2Strategy
+INFO 2025-Dec-14 23:09:03.644936 Strategy test_instance added to processor 0.
+INFO 2025-Dec-14 23:09:03.644994 Successfully initialized strategy test_instance with type Youchun2Strategy
+DEBUG 2025-Dec-14 23:09:03.645002 Init datasources...
+DEBUG 2025-Dec-14 23:09:03.645830 Init server heartbeat generator...
+INFO 2025-Dec-14 23:09:03.645847 Archiving strategy snapshots
+DEBUG 2025-Dec-14 23:09:03.645871 Strategy request for events...
+DEBUG 2025-Dec-14 23:09:03.645907 StrategyRequestForEvents Done
+DEBUG 2025-Dec-14 23:09:03.663353 Loaded results BACK_test_instance_2025-12-13_233452_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663403 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-12-13_233316_start_11-05-2021_end_11-05-2021.cra
+DEBUG 2025-Dec-14 23:09:03.663429 Loaded results BACK_MyYouchun2Instance_2025-10-29_032500_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663458 Loaded results BACK_MyYouchun2Instance_2025-10-28_235144_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663487 Loaded results BACK_MyYouchun2Instance_2025-10-29_032347_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663518 Loaded results BACK_MyYouchun2Instance_2025-10-28_234729_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663547 Loaded results BACK_MyYouchun2Instance_2025-10-28_235541_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663571 Loaded results BACK_MyYouchun2Instance_2025-10-29_032634_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663602 Loaded results BACK_MyYouchun2Instance_2025-10-29_032451_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663628 Loaded results BACK_MyYouchun2Instance_2025-10-28_235002_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663661 Loaded results BACK_MyYouchun2Instance_2025-10-28_235612_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663693 Loaded results BACK_MyYouchun2Instance_2025-10-28_234615_start_03-20-2019_end_03-20-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663725 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-21_235151_start_01-01-2024_end_01-01-2024.cra
+DEBUG 2025-Dec-14 23:09:03.663756 Loaded results BACK_MyYouchun2Instance_2025-10-28_234621_start_03-20-2019_end_03-25-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663783 Loaded results BACK_MyYouchun2Instance_2025-10-28_234725_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663815 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235757_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663847 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-22_000235_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663878 Loaded results BACK_MyYouchun2Instance_2025-10-28_234604_start_03-19-2019_end_03-19-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663914 Loaded results BACK_MyYouchun2Instance_2025-10-28_235710_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663945 Loaded results BACK_MyYouchun2Instance_2025-10-28_235458_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.663978 Loaded results BACK_MyYouchun2Instance_2025-10-28_235839_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.664008 Loaded results BACK_MyYouchun2Instance_2025-10-28_234644_start_03-20-2020_end_03-25-2020.cra
+DEBUG 2025-Dec-14 23:09:03.664033 Loaded results BACK_MyYouchun2Instance_2025-10-28_235152_start_09-13-2021_end_09-13-2021.cra
+DEBUG 2025-Dec-14 23:09:03.664063 Loaded results BACK_MyYouchun2Instance_2025-10-28_235322_start_09-13-2021_end_09-13-2021.cra
+DEBUG 2025-Dec-14 23:09:03.664089 Loaded results BACK_MyYouchun2Instance_2025-10-28_234641_start_03-20-2020_end_03-25-2020.cra
+DEBUG 2025-Dec-14 23:09:03.664115 Loaded results BACK_test_instance_2025-10-29_000045_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:09:03.664151 Loaded results BACK_Taker_2025-12-13_233226_start_11-05-2021_end_11-05-2021.cra
+DEBUG 2025-Dec-14 23:09:03.664192 Strategy Server initialized...
+DEBUG 2025-Dec-14 23:09:03.664218 Starting Strategy Server...
+INFO 2025-Dec-14 23:09:03.664423 ClientManager::StartStore:  starting pstore
+DEBUG 2025-Dec-14 23:09:03.664433 Start exec handler...
+DEBUG 2025-Dec-14 23:09:03.664435 Start processors..
+DEBUG 2025-Dec-14 23:09:03.664436 Start data sources...
+DEBUG 2025-Dec-14 23:09:03.664437 Start server heartbeat generator...
+DEBUG 2025-Dec-14 23:09:03.664438 StartServerHeartbeatGenerator Enter
+DEBUG 2025-Dec-14 23:09:03.664439 StartServerHeartbeatGenerator Exit
+DEBUG 2025-Dec-14 23:09:03.664439 BaselineStart hook called now...
+DEBUG 2025-Dec-14 23:09:03.664440 Start db source...
+DEBUG 2025-Dec-14 23:09:03.664440 Start client manager...
+INFO 2025-Dec-14 23:09:03.664642 ClientManager::StoreBody: writer thread started.
+DEBUG 2025-Dec-14 23:09:03.664718 Change strategy states to ready...
+DEBUG 2025-Dec-14 23:09:03.664996 Strategy Server started...
+DEBUG 2025-Dec-14 23:09:04.627883 OnLoginRequest received for connID = 0
+INFO 2025-Dec-14 23:09:04.628421 Console Command Issued: terminate Hybrid
+INFO 2025-Dec-14 23:09:04.659653 Strategy id = 17 with name = Hybrid was terminated.
+INFO 2025-Dec-14 23:09:04.660140 Client connection 0:  Received logout request
+DEBUG 2025-Dec-14 23:09:04.666894 OnLoginRequest received for connID = 1
+INFO 2025-Dec-14 23:09:04.667390 Console Command Issued: create_instance Hybrid HybridSignalStrategy UIUC SIM-1001-101 dlariviere 1000000 -symbols MSFT|AAPL|AMZN|AXP|BA|CAT|CRM|CSCO|CVX|DIA|DIS|DOW|GS|HD|HON|IBM
+DEBUG 2025-Dec-14 23:09:04.688865 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 23:09:04.688949 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 23:09:04.690035 Client connection 1:  Received logout request
+DEBUG 2025-Dec-14 23:09:04.696027 OnLoginRequest received for connID = 2
+INFO 2025-Dec-14 23:09:04.696415 Console Command Issued: set_simulator_params -latency_to_exchange 10
+INFO 2025-Dec-14 23:09:04.697064 Client connection 2:  Received logout request
+DEBUG 2025-Dec-14 23:09:04.713709 OnLoginRequest received for connID = 3
+INFO 2025-Dec-14 23:09:04.713996 Console Command Issued: strategy_instance_list
+INFO 2025-Dec-14 23:09:04.714453 Client connection 3:  Received logout request
+DEBUG 2025-Dec-14 23:09:04.731161 OnLoginRequest received for connID = 4
+INFO 2025-Dec-14 23:09:04.731640 Console Command Issued: start_backtest 2019-09-13 2019-09-13 Hybrid 0
+INFO 2025-Dec-14 23:09:04.731695 Starting backtest experiment 1 running 1 strategy with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 23:09:04.735427 Started backtest experiment 1 with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 23:09:04.735861 Client connection 4:  Received logout request
+DEBUG 2025-Dec-14 23:09:06.226112 Saving results for strategy Hybrid in file ./backtesting-results/BACK_Hybrid_2025-12-14_230904_start_09-13-2019_end_09-13-2019.cra
+INFO 2025-Dec-14 23:09:06.279485 Backtest experiment 1 finished.
+DEBUG 2025-Dec-14 23:09:24.777904 OnLoginRequest received for connID = 5
+INFO 2025-Dec-14 23:09:24.778409 Console Command Issued: export_cra_file /home/youchun2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_230904_start_09-13-2019_end_09-13-2019.cra /home/youchun2/ss/bt/backtesting-results/csv_files
+INFO 2025-Dec-14 23:09:24.891315 export_cra_file /home/youchun2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_230904_start_09-13-2019_end_09-13-2019.cra completed successfully. 
+INFO 2025-Dec-14 23:09:24.892230 Client connection 5:  Received logout request
+DEBUG 2025-Dec-14 23:10:16.290866 Initializing Strategy Server...
+DEBUG 2025-Dec-14 23:10:16.291363 PRIMARY_ADAPTER: LimeAdapter
+INFO 2025-Dec-14 23:10:16.291387 PROCESSOR_LOG_LEVEL configured as DEBUG
+INFO 2025-Dec-14 23:10:16.291409 LOGS_DAYS_TO_KEEP configured as 0
+INFO 2025-Dec-14 23:10:16.291781 Strategy Studio Server v 3.4.0.0
+INFO 2025-Dec-14 23:10:16.291797 Protocol Version v21.0
+DEBUG 2025-Dec-14 23:10:16.292094 Starting DatabaseMgr...
+DEBUG 2025-Dec-14 23:10:16.294196 Init timekeeper...
+DEBUG 2025-Dec-14 23:10:16.294210 Init OrderIDMgr...
+DEBUG 2025-Dec-14 23:10:16.294596 Init ExecProviders table...
+DEBUG 2025-Dec-14 23:10:16.294608 Init initcorporateactionsloader...
+DEBUG 2025-Dec-14 23:10:16.295354 Init readexchangesfile...
+INFO 2025-Dec-14 23:10:16.295487 Could not open param file exchanges.txt
+DEBUG 2025-Dec-14 23:10:16.295503 Init market center fees...
+DEBUG 2025-Dec-14 23:10:16.295512 Unable to open MarketCenterFees file fees_BACKTESTING.txt
+DEBUG 2025-Dec-14 23:10:16.295513 Init initinstrumentmgr...
+DEBUG 2025-Dec-14 23:10:16.296656 Reading holidays.txt file...
+DEBUG 2025-Dec-14 23:10:16.296674 Init initprocessors...
+INFO 2025-Dec-14 23:10:16.299403 MessageStore::Init:  Opened pstore: ./pstore/StrategyServer_20251214.store
+DEBUG 2025-Dec-14 23:10:16.299420 Init initclientmanager...
+INFO 2025-Dec-14 23:10:16.302086 Loading strategy dll /home/youchun2/ss/bt/strategies_dlls/SMAReactiveTakerStrategy.so ...
+INFO 2025-Dec-14 23:10:16.302211 Server loaded new strategy type SMAReactiveTakerStrategy
+INFO 2025-Dec-14 23:10:16.302277 Loaded strategy type SMAReactiveTakerStrategy from strategy DLL.
+INFO 2025-Dec-14 23:10:16.304196 Loading strategy dll /home/youchun2/ss/bt/strategies_dlls/Youchun2Strategy.so ...
+INFO 2025-Dec-14 23:10:16.304297 Server loaded new strategy type Youchun2Strategy
+INFO 2025-Dec-14 23:10:16.304367 Loaded strategy type Youchun2Strategy from strategy DLL.
+INFO 2025-Dec-14 23:10:16.306299 Loading strategy dll /home/youchun2/ss/bt/strategies_dlls/DiaIndexArb.so ...
+INFO 2025-Dec-14 23:10:16.306424 Server loaded new strategy type DiaIndexArbStrategy
+INFO 2025-Dec-14 23:10:16.306473 Loaded strategy type DiaIndexArbStrategy from strategy DLL.
+INFO 2025-Dec-14 23:10:16.308471 Loading strategy dll /home/youchun2/ss/bt/strategies_dlls/HybridSignalStrategy.so ...
+INFO 2025-Dec-14 23:10:16.308628 Server loaded new strategy type HybridSignalStrategy
+INFO 2025-Dec-14 23:10:16.308720 Loaded strategy type HybridSignalStrategy from strategy DLL.
+INFO 2025-Dec-14 23:10:16.310667 Loading strategy dll /home/youchun2/ss/bt/strategies_dlls/MacroStrategy.so ...
+ERROR 2025-Dec-14 23:10:16.310793 StrategyStudioException thrown in StrategyFactory::LoadStrategyDLLInfo(/home/youchun2/ss/bt/strategies_dlls/MacroStrategy.so): Invalid strategy object type!.
+DEBUG 2025-Dec-14 23:10:16.311022 Init firm position tracker...
+DEBUG 2025-Dec-14 23:10:16.311036 Init initexechandler...
+DEBUG 2025-Dec-14 23:10:16.311287 Init strategy_factory_.LoadStrategiesFromStrategyInstanceTable...
+DEBUG 2025-Dec-14 23:10:16.311653 Init strategies...
+DEBUG 2025-Dec-14 23:10:16.311700 AddStrategyInstance: Building strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+INFO 2025-Dec-14 23:10:16.311725 Strategy TestOneDiaIndexArbStrategy added to processor 0.
+INFO 2025-Dec-14 23:10:16.311894 Successfully initialized strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+DEBUG 2025-Dec-14 23:10:16.311951 AddStrategyInstance: Building strategy Taker with type SMAReactiveTakerStrategy
+INFO 2025-Dec-14 23:10:16.311979 Strategy Taker added to processor 0.
+INFO 2025-Dec-14 23:10:16.312066 Successfully initialized strategy Taker with type SMAReactiveTakerStrategy
+DEBUG 2025-Dec-14 23:10:16.312118 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 23:10:16.312139 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 23:10:16.312306 Successfully initialized strategy Hybrid with type HybridSignalStrategy
+DEBUG 2025-Dec-14 23:10:16.312426 AddStrategyInstance: Building strategy MyYouchun2Instance with type Youchun2Strategy
+INFO 2025-Dec-14 23:10:16.312454 Strategy MyYouchun2Instance added to processor 0.
+INFO 2025-Dec-14 23:10:16.312531 Successfully initialized strategy MyYouchun2Instance with type Youchun2Strategy
+DEBUG 2025-Dec-14 23:10:16.312591 AddStrategyInstance: Building strategy test_instance with type Youchun2Strategy
+INFO 2025-Dec-14 23:10:16.312615 Strategy test_instance added to processor 0.
+INFO 2025-Dec-14 23:10:16.312679 Successfully initialized strategy test_instance with type Youchun2Strategy
+DEBUG 2025-Dec-14 23:10:16.312690 Init datasources...
+DEBUG 2025-Dec-14 23:10:16.313586 Init server heartbeat generator...
+INFO 2025-Dec-14 23:10:16.313606 Archiving strategy snapshots
+DEBUG 2025-Dec-14 23:10:16.313630 Strategy request for events...
+DEBUG 2025-Dec-14 23:10:16.313677 StrategyRequestForEvents Done
+DEBUG 2025-Dec-14 23:10:16.331840 Loaded results BACK_test_instance_2025-12-13_233452_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.331897 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-12-13_233316_start_11-05-2021_end_11-05-2021.cra
+DEBUG 2025-Dec-14 23:10:16.331926 Loaded results BACK_MyYouchun2Instance_2025-10-29_032500_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.331953 Loaded results BACK_MyYouchun2Instance_2025-10-28_235144_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.331981 Loaded results BACK_MyYouchun2Instance_2025-10-29_032347_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332010 Loaded results BACK_MyYouchun2Instance_2025-10-28_234729_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332042 Loaded results BACK_MyYouchun2Instance_2025-10-28_235541_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332079 Loaded results BACK_MyYouchun2Instance_2025-10-29_032634_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332112 Loaded results BACK_MyYouchun2Instance_2025-10-29_032451_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332148 Loaded results BACK_MyYouchun2Instance_2025-10-28_235002_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332175 Loaded results BACK_MyYouchun2Instance_2025-10-28_235612_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332208 Loaded results BACK_MyYouchun2Instance_2025-10-28_234615_start_03-20-2019_end_03-20-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332245 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-21_235151_start_01-01-2024_end_01-01-2024.cra
+DEBUG 2025-Dec-14 23:10:16.332280 Loaded results BACK_MyYouchun2Instance_2025-10-28_234621_start_03-20-2019_end_03-25-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332317 Loaded results BACK_MyYouchun2Instance_2025-10-28_234725_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332408 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235757_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332448 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-22_000235_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332481 Loaded results BACK_MyYouchun2Instance_2025-10-28_234604_start_03-19-2019_end_03-19-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332518 Loaded results BACK_MyYouchun2Instance_2025-10-28_235710_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332549 Loaded results BACK_MyYouchun2Instance_2025-10-28_235458_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332589 Loaded results BACK_MyYouchun2Instance_2025-10-28_235839_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332623 Loaded results BACK_MyYouchun2Instance_2025-10-28_234644_start_03-20-2020_end_03-25-2020.cra
+DEBUG 2025-Dec-14 23:10:16.332654 Loaded results BACK_MyYouchun2Instance_2025-10-28_235152_start_09-13-2021_end_09-13-2021.cra
+DEBUG 2025-Dec-14 23:10:16.332689 Loaded results BACK_MyYouchun2Instance_2025-10-28_235322_start_09-13-2021_end_09-13-2021.cra
+DEBUG 2025-Dec-14 23:10:16.332718 Loaded results BACK_MyYouchun2Instance_2025-10-28_234641_start_03-20-2020_end_03-25-2020.cra
+DEBUG 2025-Dec-14 23:10:16.332754 Loaded results BACK_test_instance_2025-10-29_000045_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 23:10:16.332791 Loaded results BACK_Taker_2025-12-13_233226_start_11-05-2021_end_11-05-2021.cra
+DEBUG 2025-Dec-14 23:10:16.332843 Strategy Server initialized...
+DEBUG 2025-Dec-14 23:10:16.332874 Starting Strategy Server...
+INFO 2025-Dec-14 23:10:16.333123 ClientManager::StartStore:  starting pstore
+DEBUG 2025-Dec-14 23:10:16.333134 Start exec handler...
+DEBUG 2025-Dec-14 23:10:16.333136 Start processors..
+DEBUG 2025-Dec-14 23:10:16.333136 Start data sources...
+DEBUG 2025-Dec-14 23:10:16.333138 Start server heartbeat generator...
+DEBUG 2025-Dec-14 23:10:16.333139 StartServerHeartbeatGenerator Enter
+DEBUG 2025-Dec-14 23:10:16.333140 StartServerHeartbeatGenerator Exit
+DEBUG 2025-Dec-14 23:10:16.333140 BaselineStart hook called now...
+DEBUG 2025-Dec-14 23:10:16.333141 Start db source...
+DEBUG 2025-Dec-14 23:10:16.333141 Start client manager...
+INFO 2025-Dec-14 23:10:16.333369 ClientManager::StoreBody: writer thread started.
+DEBUG 2025-Dec-14 23:10:16.333407 Change strategy states to ready...
+DEBUG 2025-Dec-14 23:10:16.333722 Strategy Server started...
+DEBUG 2025-Dec-14 23:10:17.294707 OnLoginRequest received for connID = 0
+INFO 2025-Dec-14 23:10:17.295153 Console Command Issued: terminate Hybrid
+INFO 2025-Dec-14 23:10:17.323888 Strategy id = 18 with name = Hybrid was terminated.
+INFO 2025-Dec-14 23:10:17.324626 Client connection 0:  Received logout request
+DEBUG 2025-Dec-14 23:10:17.332966 OnLoginRequest received for connID = 1
+INFO 2025-Dec-14 23:10:17.333527 Console Command Issued: create_instance Hybrid HybridSignalStrategy UIUC SIM-1001-101 dlariviere 1000000 -symbols MSFT|AAPL|AMZN|AXP|BA|CAT|CRM|CSCO|CVX|DIA|DIS|DOW|GS|HD|HON|IBM
+DEBUG 2025-Dec-14 23:10:17.352298 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 23:10:17.352434 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 23:10:17.353480 Client connection 1:  Received logout request
+DEBUG 2025-Dec-14 23:10:17.360714 OnLoginRequest received for connID = 2
+INFO 2025-Dec-14 23:10:17.361100 Console Command Issued: set_simulator_params -latency_to_exchange 10
+INFO 2025-Dec-14 23:10:17.361863 Client connection 2:  Received logout request
+DEBUG 2025-Dec-14 23:10:17.378707 OnLoginRequest received for connID = 3
+INFO 2025-Dec-14 23:10:17.379291 Console Command Issued: strategy_instance_list
+INFO 2025-Dec-14 23:10:17.379752 Client connection 3:  Received logout request
+DEBUG 2025-Dec-14 23:10:17.408507 OnLoginRequest received for connID = 4
+INFO 2025-Dec-14 23:10:17.408903 Console Command Issued: start_backtest 2019-09-13 2019-09-13 Hybrid 0
+INFO 2025-Dec-14 23:10:17.408961 Starting backtest experiment 1 running 1 strategy with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 23:10:17.411627 Started backtest experiment 1 with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 23:10:17.412088 Client connection 4:  Received logout request
+DEBUG 2025-Dec-14 23:10:18.967770 Saving results for strategy Hybrid in file ./backtesting-results/BACK_Hybrid_2025-12-14_231017_start_09-13-2019_end_09-13-2019.cra
+INFO 2025-Dec-14 23:10:19.016779 Backtest experiment 1 finished.
+DEBUG 2025-Dec-14 23:10:37.458024 OnLoginRequest received for connID = 5
+INFO 2025-Dec-14 23:10:37.458520 Console Command Issued: export_cra_file /home/youchun2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_231017_start_09-13-2019_end_09-13-2019.cra /home/youchun2/ss/bt/backtesting-results/csv_files
+INFO 2025-Dec-14 23:10:37.567301 export_cra_file /home/youchun2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_231017_start_09-13-2019_end_09-13-2019.cra completed successfully. 
+INFO 2025-Dec-14 23:10:37.568153 Client connection 5:  Received logout request

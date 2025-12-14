@@ -276,7 +276,7 @@ HybridSignalStrategy::HybridSignalStrategy(StrategyID strategyID, const std::str
       evaluation_interval_ms_(500),
       trade_cooldown_ms_(200),
       max_trades_per_minute_(60),
-      tick_size_(0.0005),
+      tick_size_(0.01),
       slippage_ticks_(0.5),
       aggressiveness_(0.0),
       debug_(false),
@@ -609,16 +609,9 @@ void HybridSignalStrategy::SendOrder(const Instrument *instrument, int trade_siz
         px = instrument->top_quote().bid() - aggressiveness_ - slippage_ticks_ * tick_size_;
     }
 
-    // OrderParams params;
-    // params.instrument = instrument;
-    // params.price = px;
-    // params.quantity = std::abs(trade_size);
-    // params.order_side = (trade_size > 0) ? ORDER_SIDE_BUY : ORDER_SIDE_SELL;
-    // params.order_type = ORDER_TYPE_LIMIT;
-
     OrderParams params(*instrument,
                        abs(trade_size),
-                       px,
+                       round(px / 0.01) * 0.01, // round to cent increments
                        MARKET_CENTER_ID_NASDAQ,
                        (trade_size > 0) ? ORDER_SIDE_BUY : ORDER_SIDE_SELL,
                        ORDER_TIF_DAY,
@@ -627,7 +620,7 @@ void HybridSignalStrategy::SendOrder(const Instrument *instrument, int trade_siz
     std::cout << "SendTradeOrder(): about to send " << (trade_size > 0 ? "buy" : "sell") << " order for size "
             << std::abs(trade_size)
             << " at $"
-            << px
+            << round(px / 0.01) * 0.01
             << " for symbol "
             << instrument->symbol()
             << std::endl;
