@@ -9,6 +9,8 @@
 #include "FillInfo.h"
 #include <Utilities/Cast.h>
 #include <Utilities/utils.h>
+#include <Utilities/TimeType.h>
+#include <MarketModels/Quote.h> 
 
 #include <cassert>
 #include <iostream>
@@ -291,6 +293,7 @@ void HybridSignalStrategy::OnResetStrategyState() {
     macro_map_.clear();
     micro_map_.clear();
     pos_map_.clear();
+    wmacro_prev_.clear();
     killed_ = false;
     cumulative_pnl_ = 0.0;
     has_last_eval_ = false;
@@ -348,22 +351,16 @@ void HybridSignalStrategy::RegisterForStrategyEvents(StrategyEventRegister *even
     for (SymbolSetConstIter it = symbols_begin(); it != symbols_end(); ++it) {
         // Macro update cadence: 60s bars is a typical match for 1-min OHLCV.
         eventRegister->RegisterForBars(*it, BAR_TYPE_TIME, 60);
-
-        // Micro updates:
-        eventRegister->RegisterForTopQuotes(*it);
-        // If depth is available, register for it too (platform dependent).
-        eventRegister->RegisterForDepth(*it);
     }
 }
 
 double HybridSignalStrategy::MidPrice(const Instrument *instrument) const {
-    const TopQuote &tq = instrument->top_quote();
-    if (!tq.bid_side().IsValid() || !tq.ask_side().IsValid())
+    if (!instrument->top_quote().bid_side().IsValid() || !instrument->top_quote().ask_side().IsValid())
         return 0.0;
-    return 0.5 * (tq.bid() + tq.ask());
+    return 0.5 * (instrument->top_quote().bid() + instrument->top_quote().ask());
 }
 
-bool HybridSignalStrategy::CanTrade(const Timestamp &now_ts) {
+bool HybridSignalStrategy::CanTrade(const TimeType &now_ts) {
     if (killed_)
         return false;
     if (cumulative_pnl_ < daily_loss_limit_) {
@@ -375,13 +372,13 @@ bool HybridSignalStrategy::CanTrade(const Timestamp &now_ts) {
     if (has_last_trade_) {
         // NOTE: Timestamp arithmetic API differs; this is pseudo-ish.
         // Replace with: (now_ts - last_trade_ts_).total_milliseconds() or similar.
-        long dt_ms = (long)Utilities::ToMilliseconds(now_ts - last_trade_ts_);
+        long dt_ms = (now_ts - last_trade_ts_).total_milliseconds();
         if (dt_ms < trade_cooldown_ms_)
             return false;
     }
 
     // per-minute throttle (platform dependent minute extraction)
-    int minute = now_ts.minute(); // if unavailable, compute from epoch
+    int minute = now_ts.time_of_day().minutes(); // if unavailable, compute from epoch
     if (minute != current_minute_) {
         current_minute_ = minute;
         trades_this_minute_ = 0;
@@ -417,8 +414,7 @@ void HybridSignalStrategy::OnBar(const BarEventMsg &msg) {
 
 void HybridSignalStrategy::OnTopQuote(const QuoteEventMsg &msg) {
     const Instrument *inst = &msg.instrument();
-    const TopQuote &tq = inst->top_quote();
-    if (!tq.bid_side().IsValid() || !tq.ask_side().IsValid())
+    if (!inst->top_quote().bid_side().IsValid() || !inst->top_quote().ask_side().IsValid())
         return;
 
     // update micro state from BBO
@@ -428,7 +424,7 @@ void HybridSignalStrategy::OnTopQuote(const QuoteEventMsg &msg) {
                                                         obi_decay_type_, obi_decay_rate_, max_spread_, min_book_depth_)))
                  .first;
     }
-    it->second.UpdateBBO(tq.bid(), tq.ask(), tq.bid_size(), tq.ask_size());
+    it->second.UpdateBBO(inst->top_quote().bid(), inst->top_quote().ask(), inst->top_quote().bid_size(), inst->top_quote().ask_size());
 
     EvaluateAndTrade(inst, msg.adapter_time());
 }
@@ -453,10 +449,10 @@ void HybridSignalStrategy::OnDepth(const MarketDepthEventMsg &msg) {
     EvaluateAndTrade(inst, msg.adapter_time());
 }
 
-void HybridSignalStrategy::EvaluateAndTrade(const Instrument *instrument, const Timestamp &now_ts) {
+void HybridSignalStrategy::EvaluateAndTrade(const Instrument *instrument, const TimeType &now_ts) {
     // throttle evaluation (evaluation_interval_ms_)
     if (has_last_eval_) {
-        long dt_ms = (long)Utilities::ToMilliseconds(now_ts - last_eval_ts_);
+        long dt_ms = (now_ts - last_eval_ts_).total_milliseconds();
         if (dt_ms < evaluation_interval_ms_)
             return;
     }
@@ -487,11 +483,9 @@ void HybridSignalStrategy::EvaluateAndTrade(const Instrument *instrument, const 
         raw = clip(raw, -1.0, 1.0);
 
         // smooth W_macro: W = s*raw + (1-s)*prevW fileciteturn1file3L7-L11
-        // We store smoothed value inside MacroSignal? For simplicity store it here:
-        static boost::unordered_map<const Instrument *, double> wmacro_prev;
-        double prev = wmacro_prev[instrument];
+        double prev = wmacro_prev_[instrument];
         w_macro = macro_smoothing_alpha_ * raw + (1.0 - macro_smoothing_alpha_) * prev;
-        wmacro_prev[instrument] = w_macro;
+        wmacro_prev_[instrument] = w_macro;
     } else {
         w_macro = 0.0;
     }
@@ -512,7 +506,7 @@ void HybridSignalStrategy::EvaluateAndTrade(const Instrument *instrument, const 
     int delta = target_pos - current_pos;
 
     if (std::abs(delta) >= 1 && CanTrade(now_ts)) {
-        AdjustPortfolio(instrument, target_pos);
+        AdjustPortfolio(instrument, target_pos, now_ts);
     }
 
     if (debug_) {
@@ -526,7 +520,7 @@ void HybridSignalStrategy::EvaluateAndTrade(const Instrument *instrument, const 
     }
 }
 
-void HybridSignalStrategy::CheckExits(const Instrument *instrument, const Timestamp &now_ts, double mid_px) {
+void HybridSignalStrategy::CheckExits(const Instrument *instrument, const TimeType &now_ts, double mid_px) {
     // Local SL/TP tracking uses local avg_price/entry_time; if you prefer, derive from fills + portfolio.
     LocalPositionState &st = pos_map_[instrument];
 
@@ -566,7 +560,7 @@ void HybridSignalStrategy::CheckExits(const Instrument *instrument, const Timest
     }
 
     if (st.has_entry_time) {
-        long hold_ms = (long)Utilities::ToMilliseconds(now_ts - st.entry_time);
+        long hold_ms = (now_ts - st.entry_time).total_milliseconds();
         if (hold_ms > max_hold_time_ms_) {
             exit = true;
             reason = "MAX_HOLD_TIME";
@@ -574,7 +568,7 @@ void HybridSignalStrategy::CheckExits(const Instrument *instrument, const Timest
     }
 
     if (exit && CanTrade(now_ts)) {
-        AdjustPortfolio(instrument, 0); // flatten
+        AdjustPortfolio(instrument, 0, now_ts); // flatten
         if (debug_) {
             std::ostringstream ss;
             ss << "EXIT " << instrument->symbol() << " " << reason;
@@ -583,7 +577,7 @@ void HybridSignalStrategy::CheckExits(const Instrument *instrument, const Timest
     }
 }
 
-void HybridSignalStrategy::AdjustPortfolio(const Instrument *instrument, int desired_position) {
+void HybridSignalStrategy::AdjustPortfolio(const Instrument *instrument, int desired_position, const TimeType& now_ts) {
     int current_position = portfolio().position(instrument);
     int trade_size = desired_position - current_position;
     if (trade_size == 0)
@@ -591,7 +585,7 @@ void HybridSignalStrategy::AdjustPortfolio(const Instrument *instrument, int des
 
     // ensure no working orders before sending a new one (simple taker model)
     if (orders().num_working_orders(instrument) == 0) {
-        SendOrder(instrument, trade_size);
+        SendOrder(instrument, trade_size, now_ts);
     } else {
         // if existing order conflicts with desired direction, cancel it
         const Order *order = *orders().working_orders_begin(instrument);
@@ -604,30 +598,27 @@ void HybridSignalStrategy::AdjustPortfolio(const Instrument *instrument, int des
     }
 }
 
-void HybridSignalStrategy::SendOrder(const Instrument *instrument, int trade_size) {
-    const TopQuote &tq = instrument->top_quote();
-    if (!tq.bid_side().IsValid() || !tq.ask_side().IsValid())
+void HybridSignalStrategy::SendOrder(const Instrument *instrument, int trade_size, const TimeType& now_ts) {
+    if (!instrument->top_quote().bid_side().IsValid() || !instrument->top_quote().ask_side().IsValid())
         return;
 
-    // To behave like a "taker", buy at ask and sell at bid (optionally +/- slippage/aggressiveness).
     double px = 0.0;
     if (trade_size > 0) {
-        px = tq.ask() + aggressiveness_ + slippage_ticks_ * tick_size_;
+        px = instrument->top_quote().ask() + aggressiveness_ + slippage_ticks_ * tick_size_;
     } else {
-        px = tq.bid() - aggressiveness_ - slippage_ticks_ * tick_size_;
+        px = instrument->top_quote().bid() - aggressiveness_ - slippage_ticks_ * tick_size_;
     }
 
-    OrderParams p(*instrument,
-                  std::abs(trade_size),
-                  px,
-                  MARKET_CENTER_ID_NASDAQ, // replace with your venue
-                  (trade_size > 0) ? ORDER_SIDE_BUY : ORDER_SIDE_SELL,
-                  ORDER_TIF_DAY,
-                  ORDER_TYPE_LIMIT);
+    OrderParams params;
+    params.instrument = instrument;
+    params.price = px;
+    params.quantity = std::abs(trade_size);
+    params.order_side = (trade_size > 0) ? ORDER_SIDE_BUY : ORDER_SIDE_SELL;
+    params.order_type = ORDER_TYPE_LIMIT;
 
-    trade_actions()->SendNewOrder(p);
+    trade_actions()->SendNewOrder(params);
 
-    last_trade_ts_ = current_time();
+    last_trade_ts_ = now_ts;
     has_last_trade_ = true;
     trades_this_minute_++;
 }

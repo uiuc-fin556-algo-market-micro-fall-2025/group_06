@@ -14,6 +14,7 @@
 #include <Analytics/ScalarRollingWindow.h>
 #include <MarketModels/Instrument.h>
 #include <Strategy.h>
+#include <Utilities/TimeType.h> // Added for TimeType
 
 #include <algorithm>
 #include <boost/unordered_map.hpp>
@@ -23,6 +24,7 @@
 
 using namespace RCM::StrategyStudio;
 using namespace RCM::StrategyStudio::MarketModels;
+using namespace RCM::StrategyStudio::Utilities; // Added for TimeType
 
 inline double clip(double x, double lo, double hi) {
     return std::max(lo, std::min(hi, x));
@@ -175,7 +177,7 @@ private:
 struct LocalPositionState {
     int size = 0; // +long, -short
     double avg_price = 0.0;
-    Timestamp entry_time; // StrategyStudio timestamp type (platform-specific)
+    TimeType entry_time; // StrategyStudio timestamp type (platform-specific)
     bool has_entry_time = false;
 };
 
@@ -207,17 +209,17 @@ private: /* Strategy */
 
 private:
     // --- core "evaluate" path (called from quote/depth callbacks) ---
-    void EvaluateAndTrade(const Instrument *instrument, const Timestamp &now_ts);
+    void EvaluateAndTrade(const Instrument *instrument, const TimeType &now_ts);
 
     // --- exits / risk ---
-    void CheckExits(const Instrument *instrument, const Timestamp &now_ts, double mid_px);
+    void CheckExits(const Instrument *instrument, const TimeType &now_ts, double mid_px);
 
     // --- portfolio adjustment ---
-    void AdjustPortfolio(const Instrument *instrument, int desired_position);
-    void SendOrder(const Instrument *instrument, int trade_size);
+    void AdjustPortfolio(const Instrument *instrument, int desired_position, const TimeType &now_ts);
+    void SendOrder(const Instrument *instrument, int trade_size, const TimeType &now_ts);
 
     // --- helpers ---
-    bool CanTrade(const Timestamp &now_ts);
+    bool CanTrade(const TimeType &now_ts);
     double MidPrice(const Instrument *instrument) const;
 
 private:
@@ -276,13 +278,15 @@ private:
     // --- runtime throttles / kill switch ---
     bool killed_;
     double cumulative_pnl_;
-    Timestamp last_eval_ts_;
+    TimeType last_eval_ts_;
     bool has_last_eval_;
 
-    Timestamp last_trade_ts_;
+    TimeType last_trade_ts_;
     bool has_last_trade_;
     int trades_this_minute_;
     int current_minute_; // from Timestamp (platform dependent)
+    
+    boost::unordered_map<const Instrument*, double> wmacro_prev_;
 };
 
 extern "C" {

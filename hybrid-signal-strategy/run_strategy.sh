@@ -131,6 +131,10 @@ mv "$OUTPUT_DIR"/* "$WORK_DIR/output/"
 rm "$latestCRA"
 echo "Step 5 completed."
 
+# Copy log file for debugging
+echo "Copying log file to local directory..."
+cp "$LOG_FILE" "$WORK_DIR/strategy_log.txt"
+
 # Step 6: Terminate the Strategy Server
 echo "Step 6: Terminating the Strategy Server..."
 kill -9 $SERVER_PID

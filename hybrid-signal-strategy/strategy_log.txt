@@ -1,0 +1,786 @@
+DEBUG 2025-Dec-14 07:59:33.096646 Initializing Strategy Server...
+DEBUG 2025-Dec-14 07:59:33.098823 PRIMARY_ADAPTER: LimeAdapter
+INFO 2025-Dec-14 07:59:33.098870 PROCESSOR_LOG_LEVEL configured as DEBUG
+INFO 2025-Dec-14 07:59:33.098895 LOGS_DAYS_TO_KEEP configured as 0
+INFO 2025-Dec-14 07:59:33.099306 Strategy Studio Server v 3.4.0.0
+INFO 2025-Dec-14 07:59:33.099326 Protocol Version v21.0
+DEBUG 2025-Dec-14 07:59:33.099589 Starting DatabaseMgr...
+DEBUG 2025-Dec-14 07:59:33.104667 Init timekeeper...
+DEBUG 2025-Dec-14 07:59:33.104682 Init OrderIDMgr...
+DEBUG 2025-Dec-14 07:59:33.105757 Init ExecProviders table...
+DEBUG 2025-Dec-14 07:59:33.105772 Init initcorporateactionsloader...
+DEBUG 2025-Dec-14 07:59:33.106735 Init readexchangesfile...
+INFO 2025-Dec-14 07:59:33.106887 Could not open param file exchanges.txt
+DEBUG 2025-Dec-14 07:59:33.106894 Init market center fees...
+DEBUG 2025-Dec-14 07:59:33.106909 Unable to open MarketCenterFees file fees_BACKTESTING.txt
+DEBUG 2025-Dec-14 07:59:33.106911 Init initinstrumentmgr...
+DEBUG 2025-Dec-14 07:59:33.108511 Reading holidays.txt file...
+DEBUG 2025-Dec-14 07:59:33.108534 Init initprocessors...
+INFO 2025-Dec-14 07:59:33.110174 MessageStore::Init:  Opened pstore: ./pstore/StrategyServer_20251214.store
+DEBUG 2025-Dec-14 07:59:33.110194 Init initclientmanager...
+INFO 2025-Dec-14 07:59:33.121509 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/Junup2.so ...
+INFO 2025-Dec-14 07:59:33.121659 Server loaded new strategy type Junup2Strategy
+INFO 2025-Dec-14 07:59:33.121727 Loaded strategy type Junup2Strategy from strategy DLL.
+INFO 2025-Dec-14 07:59:33.131337 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/DiaIndexArb.so ...
+INFO 2025-Dec-14 07:59:33.131450 Server loaded new strategy type DiaIndexArbStrategy
+INFO 2025-Dec-14 07:59:33.131503 Loaded strategy type DiaIndexArbStrategy from strategy DLL.
+INFO 2025-Dec-14 07:59:33.133629 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/HybridSignalStrategy.so ...
+INFO 2025-Dec-14 07:59:33.155266 Server loaded new strategy type HybridSignalStrategy
+INFO 2025-Dec-14 07:59:33.155415 Loaded strategy type HybridSignalStrategy from strategy DLL.
+DEBUG 2025-Dec-14 07:59:33.155439 Init firm position tracker...
+DEBUG 2025-Dec-14 07:59:33.155445 Init initexechandler...
+DEBUG 2025-Dec-14 07:59:33.155672 Init strategy_factory_.LoadStrategiesFromStrategyInstanceTable...
+DEBUG 2025-Dec-14 07:59:33.156045 Init strategies...
+DEBUG 2025-Dec-14 07:59:33.156102 AddStrategyInstance: Building strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+INFO 2025-Dec-14 07:59:33.156145 Strategy TestOneDiaIndexArbStrategy added to processor 0.
+INFO 2025-Dec-14 07:59:33.156894 Successfully initialized strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+DEBUG 2025-Dec-14 07:59:33.156992 AddStrategyInstance: Building strategy TestJunup2Strategy with type Junup2Strategy
+INFO 2025-Dec-14 07:59:33.157031 Strategy TestJunup2Strategy added to processor 0.
+INFO 2025-Dec-14 07:59:33.157636 Successfully initialized strategy TestJunup2Strategy with type Junup2Strategy
+DEBUG 2025-Dec-14 07:59:33.157718 AddStrategyInstance: Building strategy Junup2InstanceOneStrategy with type Junup2Strategy
+INFO 2025-Dec-14 07:59:33.157750 Strategy Junup2InstanceOneStrategy added to processor 0.
+INFO 2025-Dec-14 07:59:33.158405 Successfully initialized strategy Junup2InstanceOneStrategy with type Junup2Strategy
+DEBUG 2025-Dec-14 07:59:33.158497 AddStrategyInstance: Building strategy Junup2InstanceTwoStrategy with type Junup2Strategy
+INFO 2025-Dec-14 07:59:33.158536 Strategy Junup2InstanceTwoStrategy added to processor 0.
+INFO 2025-Dec-14 07:59:33.159177 Successfully initialized strategy Junup2InstanceTwoStrategy with type Junup2Strategy
+DEBUG 2025-Dec-14 07:59:33.159193 Init datasources...
+DEBUG 2025-Dec-14 07:59:33.160634 Init server heartbeat generator...
+INFO 2025-Dec-14 07:59:33.160654 Archiving strategy snapshots
+DEBUG 2025-Dec-14 07:59:33.160684 Strategy request for events...
+DEBUG 2025-Dec-14 07:59:33.160717 StrategyRequestForEvents Done
+DEBUG 2025-Dec-14 07:59:33.181025 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_034926_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 07:59:33.181616 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_034715_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 07:59:33.182182 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235234_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 07:59:33.182729 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-11-04_073058_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 07:59:33.183478 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_035154_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 07:59:33.183985 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-29_005207_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 07:59:33.184443 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235509_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 07:59:33.184977 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-11-04_035056_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 07:59:33.185526 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235200_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 07:59:33.186104 Loaded results BACK_TestJunup2Strategy_2025-10-29_035730_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 07:59:33.186559 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-21_234457_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 07:59:33.187107 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_072504_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 07:59:33.187573 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_074028_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 07:59:33.188042 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_231417_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 07:59:33.188533 Loaded results BACK_Junup2InstanceTwoStrategy_2025-11-04_074207_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 07:59:33.189053 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235350_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 07:59:33.189489 Loaded results BACK_Junup2InstanceOneStrategy_20251103T000000_20251103T000000.cra
+DEBUG 2025-Dec-14 07:59:33.189547 Strategy Server initialized...
+DEBUG 2025-Dec-14 07:59:33.189568 Starting Strategy Server...
+INFO 2025-Dec-14 07:59:33.189765 ClientManager::StartStore:  starting pstore
+DEBUG 2025-Dec-14 07:59:33.189777 Start exec handler...
+DEBUG 2025-Dec-14 07:59:33.189779 Start processors..
+DEBUG 2025-Dec-14 07:59:33.189780 Start data sources...
+DEBUG 2025-Dec-14 07:59:33.189782 Start server heartbeat generator...
+DEBUG 2025-Dec-14 07:59:33.189783 StartServerHeartbeatGenerator Enter
+DEBUG 2025-Dec-14 07:59:33.189783 StartServerHeartbeatGenerator Exit
+DEBUG 2025-Dec-14 07:59:33.189784 BaselineStart hook called now...
+DEBUG 2025-Dec-14 07:59:33.189784 Start db source...
+DEBUG 2025-Dec-14 07:59:33.189785 Start client manager...
+INFO 2025-Dec-14 07:59:33.189934 ClientManager::StoreBody: writer thread started.
+DEBUG 2025-Dec-14 07:59:33.190045 Change strategy states to ready...
+DEBUG 2025-Dec-14 07:59:33.190368 Strategy Server started...
+DEBUG 2025-Dec-14 07:59:34.090810 OnLoginRequest received for connID = 0
+INFO 2025-Dec-14 07:59:34.091144 Console Command Issued: terminate Hybrid
+ERROR 2025-Dec-14 07:59:34.091187 Console Command Issued: terminate Hybrid, failed to find strategy.
+INFO 2025-Dec-14 07:59:34.091666 Client connection 0:  Received logout request
+DEBUG 2025-Dec-14 07:59:34.096406 OnLoginRequest received for connID = 1
+INFO 2025-Dec-14 07:59:34.096649 Console Command Issued: create_instance Hybrid HybridSignalStrategy UIUC SIM-1001-101 dlariviere 1000000 -symbols MSFT|AAPL|AMZN|AXP|BA|CAT|CRM|CSCO|CVX|DIA|DIS|DOW|GS|HD|HON|IBM
+DEBUG 2025-Dec-14 07:59:34.125001 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 07:59:34.125092 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 07:59:34.125996 Client connection 1:  Received logout request
+DEBUG 2025-Dec-14 07:59:34.141945 OnLoginRequest received for connID = 2
+INFO 2025-Dec-14 07:59:34.142428 Console Command Issued: set_simulator_params -latency_to_exchange 10
+INFO 2025-Dec-14 07:59:34.153150 Client connection 2:  Received logout request
+DEBUG 2025-Dec-14 07:59:34.160066 OnLoginRequest received for connID = 3
+INFO 2025-Dec-14 07:59:34.160443 Console Command Issued: strategy_instance_list
+INFO 2025-Dec-14 07:59:34.160918 Client connection 3:  Received logout request
+DEBUG 2025-Dec-14 07:59:34.190285 OnLoginRequest received for connID = 4
+INFO 2025-Dec-14 07:59:34.190739 Console Command Issued: start_backtest 2019-09-13 2019-09-13 Hybrid 0
+INFO 2025-Dec-14 07:59:34.190801 Starting backtest experiment 1 running 1 strategy with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 07:59:34.196141 Started backtest experiment 1 with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 07:59:34.196805 Client connection 4:  Received logout request
+DEBUG 2025-Dec-14 07:59:35.422815 Saving results for strategy Hybrid in file ./backtesting-results/BACK_Hybrid_2025-12-14_075934_start_09-13-2019_end_09-13-2019.cra
+INFO 2025-Dec-14 07:59:35.425216 Backtest experiment 1 finished.
+DEBUG 2025-Dec-14 07:59:54.229562 OnLoginRequest received for connID = 5
+INFO 2025-Dec-14 07:59:54.230163 Console Command Issued: export_cra_file /home/junup2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_075934_start_09-13-2019_end_09-13-2019.cra /home/junup2/ss/bt/backtesting-results/csv_files
+INFO 2025-Dec-14 07:59:54.232218 export_cra_file /home/junup2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_075934_start_09-13-2019_end_09-13-2019.cra completed successfully. 
+INFO 2025-Dec-14 07:59:54.232858 Client connection 5:  Received logout request
+DEBUG 2025-Dec-14 08:04:35.064861 Initializing Strategy Server...
+DEBUG 2025-Dec-14 08:04:35.065238 PRIMARY_ADAPTER: LimeAdapter
+INFO 2025-Dec-14 08:04:35.065260 PROCESSOR_LOG_LEVEL configured as DEBUG
+INFO 2025-Dec-14 08:04:35.065280 LOGS_DAYS_TO_KEEP configured as 0
+INFO 2025-Dec-14 08:04:35.065545 Strategy Studio Server v 3.4.0.0
+INFO 2025-Dec-14 08:04:35.065559 Protocol Version v21.0
+DEBUG 2025-Dec-14 08:04:35.065785 Starting DatabaseMgr...
+DEBUG 2025-Dec-14 08:04:35.067857 Init timekeeper...
+DEBUG 2025-Dec-14 08:04:35.067867 Init OrderIDMgr...
+DEBUG 2025-Dec-14 08:04:35.068265 Init ExecProviders table...
+DEBUG 2025-Dec-14 08:04:35.068275 Init initcorporateactionsloader...
+DEBUG 2025-Dec-14 08:04:35.069013 Init readexchangesfile...
+INFO 2025-Dec-14 08:04:35.069126 Could not open param file exchanges.txt
+DEBUG 2025-Dec-14 08:04:35.069138 Init market center fees...
+DEBUG 2025-Dec-14 08:04:35.069148 Unable to open MarketCenterFees file fees_BACKTESTING.txt
+DEBUG 2025-Dec-14 08:04:35.069149 Init initinstrumentmgr...
+DEBUG 2025-Dec-14 08:04:35.070233 Reading holidays.txt file...
+DEBUG 2025-Dec-14 08:04:35.070247 Init initprocessors...
+INFO 2025-Dec-14 08:04:35.070554 MessageStore::Init:  Opened pstore: ./pstore/StrategyServer_20251214.store
+DEBUG 2025-Dec-14 08:04:35.070566 Init initclientmanager...
+INFO 2025-Dec-14 08:04:35.073094 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/Junup2.so ...
+INFO 2025-Dec-14 08:04:35.073233 Server loaded new strategy type Junup2Strategy
+INFO 2025-Dec-14 08:04:35.073285 Loaded strategy type Junup2Strategy from strategy DLL.
+INFO 2025-Dec-14 08:04:35.075196 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/DiaIndexArb.so ...
+INFO 2025-Dec-14 08:04:35.075292 Server loaded new strategy type DiaIndexArbStrategy
+INFO 2025-Dec-14 08:04:35.075336 Loaded strategy type DiaIndexArbStrategy from strategy DLL.
+INFO 2025-Dec-14 08:04:35.077341 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/HybridSignalStrategy.so ...
+INFO 2025-Dec-14 08:04:35.077487 Server loaded new strategy type HybridSignalStrategy
+INFO 2025-Dec-14 08:04:35.077569 Loaded strategy type HybridSignalStrategy from strategy DLL.
+DEBUG 2025-Dec-14 08:04:35.077586 Init firm position tracker...
+DEBUG 2025-Dec-14 08:04:35.077588 Init initexechandler...
+DEBUG 2025-Dec-14 08:04:35.077772 Init strategy_factory_.LoadStrategiesFromStrategyInstanceTable...
+DEBUG 2025-Dec-14 08:04:35.078109 Init strategies...
+DEBUG 2025-Dec-14 08:04:35.078153 AddStrategyInstance: Building strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+INFO 2025-Dec-14 08:04:35.078196 Strategy TestOneDiaIndexArbStrategy added to processor 0.
+INFO 2025-Dec-14 08:04:35.078362 Successfully initialized strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+DEBUG 2025-Dec-14 08:04:35.078415 AddStrategyInstance: Building strategy TestJunup2Strategy with type Junup2Strategy
+INFO 2025-Dec-14 08:04:35.078437 Strategy TestJunup2Strategy added to processor 0.
+INFO 2025-Dec-14 08:04:35.078520 Successfully initialized strategy TestJunup2Strategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:04:35.078573 AddStrategyInstance: Building strategy Junup2InstanceOneStrategy with type Junup2Strategy
+INFO 2025-Dec-14 08:04:35.078591 Strategy Junup2InstanceOneStrategy added to processor 0.
+INFO 2025-Dec-14 08:04:35.078660 Successfully initialized strategy Junup2InstanceOneStrategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:04:35.078719 AddStrategyInstance: Building strategy Junup2InstanceTwoStrategy with type Junup2Strategy
+INFO 2025-Dec-14 08:04:35.078746 Strategy Junup2InstanceTwoStrategy added to processor 0.
+INFO 2025-Dec-14 08:04:35.078814 Successfully initialized strategy Junup2InstanceTwoStrategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:04:35.078856 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 08:04:35.078875 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 08:04:35.079027 Successfully initialized strategy Hybrid with type HybridSignalStrategy
+DEBUG 2025-Dec-14 08:04:35.079037 Init datasources...
+DEBUG 2025-Dec-14 08:04:35.079830 Init server heartbeat generator...
+INFO 2025-Dec-14 08:04:35.079845 Archiving strategy snapshots
+DEBUG 2025-Dec-14 08:04:35.079870 Strategy request for events...
+DEBUG 2025-Dec-14 08:04:35.079900 StrategyRequestForEvents Done
+DEBUG 2025-Dec-14 08:04:35.097474 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_034926_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:04:35.097522 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_034715_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:04:35.097547 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235234_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:04:35.097570 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-11-04_073058_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:04:35.097594 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_035154_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:04:35.097618 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-29_005207_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:04:35.097643 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235509_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:04:35.097667 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-11-04_035056_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:04:35.097709 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235200_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:04:35.097742 Loaded results BACK_TestJunup2Strategy_2025-10-29_035730_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:04:35.097767 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-21_234457_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:04:35.097795 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_072504_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:04:35.097824 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_074028_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:04:35.097851 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_231417_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:04:35.097880 Loaded results BACK_Junup2InstanceTwoStrategy_2025-11-04_074207_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:04:35.097905 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235350_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:04:35.097935 Loaded results BACK_Junup2InstanceOneStrategy_20251103T000000_20251103T000000.cra
+DEBUG 2025-Dec-14 08:04:35.097971 Strategy Server initialized...
+DEBUG 2025-Dec-14 08:04:35.097993 Starting Strategy Server...
+INFO 2025-Dec-14 08:04:35.098144 ClientManager::StartStore:  starting pstore
+DEBUG 2025-Dec-14 08:04:35.098152 Start exec handler...
+DEBUG 2025-Dec-14 08:04:35.098154 Start processors..
+DEBUG 2025-Dec-14 08:04:35.098154 Start data sources...
+DEBUG 2025-Dec-14 08:04:35.098155 Start server heartbeat generator...
+DEBUG 2025-Dec-14 08:04:35.098157 StartServerHeartbeatGenerator Enter
+DEBUG 2025-Dec-14 08:04:35.098157 StartServerHeartbeatGenerator Exit
+DEBUG 2025-Dec-14 08:04:35.098158 BaselineStart hook called now...
+DEBUG 2025-Dec-14 08:04:35.098158 Start db source...
+DEBUG 2025-Dec-14 08:04:35.098159 Start client manager...
+INFO 2025-Dec-14 08:04:35.098331 ClientManager::StoreBody: writer thread started.
+DEBUG 2025-Dec-14 08:04:35.098360 Change strategy states to ready...
+DEBUG 2025-Dec-14 08:04:35.098672 Strategy Server started...
+DEBUG 2025-Dec-14 08:04:36.069164 OnLoginRequest received for connID = 0
+INFO 2025-Dec-14 08:04:36.069667 Console Command Issued: terminate Hybrid
+INFO 2025-Dec-14 08:04:36.089438 Strategy id = 5 with name = Hybrid was terminated.
+INFO 2025-Dec-14 08:04:36.089966 Client connection 0:  Received logout request
+DEBUG 2025-Dec-14 08:04:36.097498 OnLoginRequest received for connID = 1
+INFO 2025-Dec-14 08:04:36.097921 Console Command Issued: create_instance Hybrid HybridSignalStrategy UIUC SIM-1001-101 dlariviere 1000000 -symbols MSFT|AAPL|AMZN|AXP|BA|CAT|CRM|CSCO|CVX|DIA|DIS|DOW|GS|HD|HON|IBM
+DEBUG 2025-Dec-14 08:04:36.120822 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 08:04:36.120918 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 08:04:36.121955 Client connection 1:  Received logout request
+DEBUG 2025-Dec-14 08:04:36.128797 OnLoginRequest received for connID = 2
+INFO 2025-Dec-14 08:04:36.129331 Console Command Issued: set_simulator_params -latency_to_exchange 10
+INFO 2025-Dec-14 08:04:36.130047 Client connection 2:  Received logout request
+DEBUG 2025-Dec-14 08:04:36.147259 OnLoginRequest received for connID = 3
+INFO 2025-Dec-14 08:04:36.147662 Console Command Issued: strategy_instance_list
+INFO 2025-Dec-14 08:04:36.148132 Client connection 3:  Received logout request
+DEBUG 2025-Dec-14 08:04:36.165072 OnLoginRequest received for connID = 4
+INFO 2025-Dec-14 08:04:36.165620 Console Command Issued: start_backtest 2019-09-13 2019-09-13 Hybrid 0
+INFO 2025-Dec-14 08:04:36.165700 Starting backtest experiment 1 running 1 strategy with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 08:04:36.168487 Started backtest experiment 1 with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 08:04:36.168930 Client connection 4:  Received logout request
+DEBUG 2025-Dec-14 08:04:37.428565 Saving results for strategy Hybrid in file ./backtesting-results/BACK_Hybrid_2025-12-14_080436_start_09-13-2019_end_09-13-2019.cra
+INFO 2025-Dec-14 08:04:37.430187 Backtest experiment 1 finished.
+DEBUG 2025-Dec-14 08:04:56.215421 OnLoginRequest received for connID = 5
+INFO 2025-Dec-14 08:04:56.215970 Console Command Issued: export_cra_file /home/junup2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_080436_start_09-13-2019_end_09-13-2019.cra /home/junup2/ss/bt/backtesting-results/csv_files
+INFO 2025-Dec-14 08:04:56.217331 export_cra_file /home/junup2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_080436_start_09-13-2019_end_09-13-2019.cra completed successfully. 
+INFO 2025-Dec-14 08:04:56.218515 Client connection 5:  Received logout request
+DEBUG 2025-Dec-14 08:07:32.691452 Initializing Strategy Server...
+DEBUG 2025-Dec-14 08:07:32.691982 PRIMARY_ADAPTER: LimeAdapter
+INFO 2025-Dec-14 08:07:32.692008 PROCESSOR_LOG_LEVEL configured as DEBUG
+INFO 2025-Dec-14 08:07:32.692146 LOGS_DAYS_TO_KEEP configured as 0
+INFO 2025-Dec-14 08:07:32.692529 Strategy Studio Server v 3.4.0.0
+INFO 2025-Dec-14 08:07:32.692640 Protocol Version v21.0
+DEBUG 2025-Dec-14 08:07:32.692877 Starting DatabaseMgr...
+DEBUG 2025-Dec-14 08:07:32.695083 Init timekeeper...
+DEBUG 2025-Dec-14 08:07:32.695096 Init OrderIDMgr...
+DEBUG 2025-Dec-14 08:07:32.695429 Init ExecProviders table...
+DEBUG 2025-Dec-14 08:07:32.695441 Init initcorporateactionsloader...
+DEBUG 2025-Dec-14 08:07:32.696223 Init readexchangesfile...
+INFO 2025-Dec-14 08:07:32.696341 Could not open param file exchanges.txt
+DEBUG 2025-Dec-14 08:07:32.696354 Init market center fees...
+DEBUG 2025-Dec-14 08:07:32.696365 Unable to open MarketCenterFees file fees_BACKTESTING.txt
+DEBUG 2025-Dec-14 08:07:32.696366 Init initinstrumentmgr...
+DEBUG 2025-Dec-14 08:07:32.698579 Reading holidays.txt file...
+DEBUG 2025-Dec-14 08:07:32.698598 Init initprocessors...
+INFO 2025-Dec-14 08:07:32.698942 MessageStore::Init:  Opened pstore: ./pstore/StrategyServer_20251214.store
+DEBUG 2025-Dec-14 08:07:32.698956 Init initclientmanager...
+INFO 2025-Dec-14 08:07:32.701665 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/Junup2.so ...
+INFO 2025-Dec-14 08:07:32.701891 Server loaded new strategy type Junup2Strategy
+INFO 2025-Dec-14 08:07:32.702033 Loaded strategy type Junup2Strategy from strategy DLL.
+INFO 2025-Dec-14 08:07:32.704053 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/DiaIndexArb.so ...
+INFO 2025-Dec-14 08:07:32.704229 Server loaded new strategy type DiaIndexArbStrategy
+INFO 2025-Dec-14 08:07:32.704353 Loaded strategy type DiaIndexArbStrategy from strategy DLL.
+INFO 2025-Dec-14 08:07:32.706462 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/HybridSignalStrategy.so ...
+INFO 2025-Dec-14 08:07:32.706727 Server loaded new strategy type HybridSignalStrategy
+INFO 2025-Dec-14 08:07:32.706897 Loaded strategy type HybridSignalStrategy from strategy DLL.
+DEBUG 2025-Dec-14 08:07:32.706918 Init firm position tracker...
+DEBUG 2025-Dec-14 08:07:32.706921 Init initexechandler...
+DEBUG 2025-Dec-14 08:07:32.707103 Init strategy_factory_.LoadStrategiesFromStrategyInstanceTable...
+DEBUG 2025-Dec-14 08:07:32.707469 Init strategies...
+DEBUG 2025-Dec-14 08:07:32.707522 AddStrategyInstance: Building strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+INFO 2025-Dec-14 08:07:32.707563 Strategy TestOneDiaIndexArbStrategy added to processor 0.
+INFO 2025-Dec-14 08:07:32.707729 Successfully initialized strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+DEBUG 2025-Dec-14 08:07:32.707790 AddStrategyInstance: Building strategy TestJunup2Strategy with type Junup2Strategy
+INFO 2025-Dec-14 08:07:32.707815 Strategy TestJunup2Strategy added to processor 0.
+INFO 2025-Dec-14 08:07:32.707897 Successfully initialized strategy TestJunup2Strategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:07:32.707945 AddStrategyInstance: Building strategy Junup2InstanceOneStrategy with type Junup2Strategy
+INFO 2025-Dec-14 08:07:32.707962 Strategy Junup2InstanceOneStrategy added to processor 0.
+INFO 2025-Dec-14 08:07:32.708058 Successfully initialized strategy Junup2InstanceOneStrategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:07:32.708106 AddStrategyInstance: Building strategy Junup2InstanceTwoStrategy with type Junup2Strategy
+INFO 2025-Dec-14 08:07:32.708128 Strategy Junup2InstanceTwoStrategy added to processor 0.
+INFO 2025-Dec-14 08:07:32.708200 Successfully initialized strategy Junup2InstanceTwoStrategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:07:32.708245 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 08:07:32.708267 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 08:07:32.708459 Successfully initialized strategy Hybrid with type HybridSignalStrategy
+DEBUG 2025-Dec-14 08:07:32.708470 Init datasources...
+DEBUG 2025-Dec-14 08:07:32.709455 Init server heartbeat generator...
+INFO 2025-Dec-14 08:07:32.709473 Archiving strategy snapshots
+DEBUG 2025-Dec-14 08:07:32.709496 Strategy request for events...
+DEBUG 2025-Dec-14 08:07:32.709531 StrategyRequestForEvents Done
+DEBUG 2025-Dec-14 08:07:32.728288 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_034926_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:07:32.728336 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_034715_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:07:32.728362 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235234_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:07:32.728412 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-11-04_073058_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:07:32.728437 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_035154_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:07:32.728461 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-29_005207_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:07:32.728486 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235509_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:07:32.728517 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-11-04_035056_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:07:32.728552 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235200_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:07:32.728583 Loaded results BACK_TestJunup2Strategy_2025-10-29_035730_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:07:32.728631 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-21_234457_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:07:32.728664 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_072504_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:07:32.728696 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_074028_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:07:32.728727 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_231417_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:07:32.728760 Loaded results BACK_Junup2InstanceTwoStrategy_2025-11-04_074207_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:07:32.728788 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235350_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:07:32.728822 Loaded results BACK_Junup2InstanceOneStrategy_20251103T000000_20251103T000000.cra
+DEBUG 2025-Dec-14 08:07:32.728963 Strategy Server initialized...
+DEBUG 2025-Dec-14 08:07:32.729125 Starting Strategy Server...
+INFO 2025-Dec-14 08:07:32.729423 ClientManager::StartStore:  starting pstore
+DEBUG 2025-Dec-14 08:07:32.729433 Start exec handler...
+DEBUG 2025-Dec-14 08:07:32.729435 Start processors..
+DEBUG 2025-Dec-14 08:07:32.729435 Start data sources...
+DEBUG 2025-Dec-14 08:07:32.729443 Start server heartbeat generator...
+DEBUG 2025-Dec-14 08:07:32.729444 StartServerHeartbeatGenerator Enter
+DEBUG 2025-Dec-14 08:07:32.729445 StartServerHeartbeatGenerator Exit
+DEBUG 2025-Dec-14 08:07:32.729446 BaselineStart hook called now...
+DEBUG 2025-Dec-14 08:07:32.729446 Start db source...
+DEBUG 2025-Dec-14 08:07:32.729447 Start client manager...
+DEBUG 2025-Dec-14 08:07:32.729821 Change strategy states to ready...
+INFO 2025-Dec-14 08:07:32.729877 ClientManager::StoreBody: writer thread started.
+DEBUG 2025-Dec-14 08:07:32.730142 Strategy Server started...
+DEBUG 2025-Dec-14 08:07:33.697309 OnLoginRequest received for connID = 0
+INFO 2025-Dec-14 08:07:33.697733 Console Command Issued: terminate Hybrid
+INFO 2025-Dec-14 08:07:33.726246 Strategy id = 6 with name = Hybrid was terminated.
+INFO 2025-Dec-14 08:07:33.727584 Client connection 0:  Received logout request
+DEBUG 2025-Dec-14 08:07:33.735751 OnLoginRequest received for connID = 1
+INFO 2025-Dec-14 08:07:33.736202 Console Command Issued: create_instance Hybrid HybridSignalStrategy UIUC SIM-1001-101 dlariviere 1000000 -symbols MSFT|AAPL|AMZN|AXP|BA|CAT|CRM|CSCO|CVX|DIA|DIS|DOW|GS|HD|HON|IBM
+DEBUG 2025-Dec-14 08:07:33.754706 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 08:07:33.754793 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 08:07:33.756209 Client connection 1:  Received logout request
+DEBUG 2025-Dec-14 08:07:33.763790 OnLoginRequest received for connID = 2
+INFO 2025-Dec-14 08:07:33.764156 Console Command Issued: set_simulator_params -latency_to_exchange 10
+INFO 2025-Dec-14 08:07:33.765031 Client connection 2:  Received logout request
+DEBUG 2025-Dec-14 08:07:33.781979 OnLoginRequest received for connID = 3
+INFO 2025-Dec-14 08:07:33.782334 Console Command Issued: strategy_instance_list
+INFO 2025-Dec-14 08:07:33.783005 Client connection 3:  Received logout request
+DEBUG 2025-Dec-14 08:07:33.813510 OnLoginRequest received for connID = 4
+INFO 2025-Dec-14 08:07:33.813857 Console Command Issued: start_backtest 2019-09-13 2019-09-13 Hybrid 0
+INFO 2025-Dec-14 08:07:33.813913 Starting backtest experiment 1 running 1 strategy with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 08:07:33.817054 Started backtest experiment 1 with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 08:07:33.817586 Client connection 4:  Received logout request
+DEBUG 2025-Dec-14 08:07:35.026342 Saving results for strategy Hybrid in file ./backtesting-results/BACK_Hybrid_2025-12-14_080733_start_09-13-2019_end_09-13-2019.cra
+INFO 2025-Dec-14 08:07:35.030241 Backtest experiment 1 finished.
+DEBUG 2025-Dec-14 08:07:53.866036 OnLoginRequest received for connID = 5
+INFO 2025-Dec-14 08:07:53.866398 Console Command Issued: export_cra_file /home/junup2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_080733_start_09-13-2019_end_09-13-2019.cra /home/junup2/ss/bt/backtesting-results/csv_files
+INFO 2025-Dec-14 08:07:53.867568 export_cra_file /home/junup2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_080733_start_09-13-2019_end_09-13-2019.cra completed successfully. 
+INFO 2025-Dec-14 08:07:53.868270 Client connection 5:  Received logout request
+DEBUG 2025-Dec-14 08:25:18.826331 Initializing Strategy Server...
+DEBUG 2025-Dec-14 08:25:18.826771 PRIMARY_ADAPTER: LimeAdapter
+INFO 2025-Dec-14 08:25:18.826782 PROCESSOR_LOG_LEVEL configured as DEBUG
+INFO 2025-Dec-14 08:25:18.826810 LOGS_DAYS_TO_KEEP configured as 0
+INFO 2025-Dec-14 08:25:18.827077 Strategy Studio Server v 3.4.0.0
+INFO 2025-Dec-14 08:25:18.827086 Protocol Version v21.0
+DEBUG 2025-Dec-14 08:25:18.827305 Starting DatabaseMgr...
+DEBUG 2025-Dec-14 08:25:18.829655 Init timekeeper...
+DEBUG 2025-Dec-14 08:25:18.829667 Init OrderIDMgr...
+DEBUG 2025-Dec-14 08:25:18.830011 Init ExecProviders table...
+DEBUG 2025-Dec-14 08:25:18.830032 Init initcorporateactionsloader...
+DEBUG 2025-Dec-14 08:25:18.830761 Init readexchangesfile...
+INFO 2025-Dec-14 08:25:18.830878 Could not open param file exchanges.txt
+DEBUG 2025-Dec-14 08:25:18.830893 Init market center fees...
+DEBUG 2025-Dec-14 08:25:18.830904 Unable to open MarketCenterFees file fees_BACKTESTING.txt
+DEBUG 2025-Dec-14 08:25:18.830905 Init initinstrumentmgr...
+DEBUG 2025-Dec-14 08:25:18.832118 Reading holidays.txt file...
+DEBUG 2025-Dec-14 08:25:18.832135 Init initprocessors...
+INFO 2025-Dec-14 08:25:18.832539 MessageStore::Init:  Opened pstore: ./pstore/StrategyServer_20251214.store
+DEBUG 2025-Dec-14 08:25:18.832553 Init initclientmanager...
+INFO 2025-Dec-14 08:25:18.835212 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/Junup2.so ...
+INFO 2025-Dec-14 08:25:18.835398 Server loaded new strategy type Junup2Strategy
+INFO 2025-Dec-14 08:25:18.835458 Loaded strategy type Junup2Strategy from strategy DLL.
+INFO 2025-Dec-14 08:25:18.837550 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/DiaIndexArb.so ...
+INFO 2025-Dec-14 08:25:18.837655 Server loaded new strategy type DiaIndexArbStrategy
+INFO 2025-Dec-14 08:25:18.837708 Loaded strategy type DiaIndexArbStrategy from strategy DLL.
+INFO 2025-Dec-14 08:25:18.839786 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/HybridSignalStrategy.so ...
+INFO 2025-Dec-14 08:25:18.839958 Server loaded new strategy type HybridSignalStrategy
+INFO 2025-Dec-14 08:25:18.840058 Loaded strategy type HybridSignalStrategy from strategy DLL.
+DEBUG 2025-Dec-14 08:25:18.840079 Init firm position tracker...
+DEBUG 2025-Dec-14 08:25:18.840082 Init initexechandler...
+DEBUG 2025-Dec-14 08:25:18.840273 Init strategy_factory_.LoadStrategiesFromStrategyInstanceTable...
+DEBUG 2025-Dec-14 08:25:18.840730 Init strategies...
+DEBUG 2025-Dec-14 08:25:18.840782 AddStrategyInstance: Building strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+INFO 2025-Dec-14 08:25:18.840813 Strategy TestOneDiaIndexArbStrategy added to processor 0.
+INFO 2025-Dec-14 08:25:18.841024 Successfully initialized strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+DEBUG 2025-Dec-14 08:25:18.841082 AddStrategyInstance: Building strategy TestJunup2Strategy with type Junup2Strategy
+INFO 2025-Dec-14 08:25:18.841109 Strategy TestJunup2Strategy added to processor 0.
+INFO 2025-Dec-14 08:25:18.841200 Successfully initialized strategy TestJunup2Strategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:25:18.841252 AddStrategyInstance: Building strategy Junup2InstanceOneStrategy with type Junup2Strategy
+INFO 2025-Dec-14 08:25:18.841274 Strategy Junup2InstanceOneStrategy added to processor 0.
+INFO 2025-Dec-14 08:25:18.841377 Successfully initialized strategy Junup2InstanceOneStrategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:25:18.841432 AddStrategyInstance: Building strategy Junup2InstanceTwoStrategy with type Junup2Strategy
+INFO 2025-Dec-14 08:25:18.841468 Strategy Junup2InstanceTwoStrategy added to processor 0.
+INFO 2025-Dec-14 08:25:18.841550 Successfully initialized strategy Junup2InstanceTwoStrategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:25:18.841599 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 08:25:18.841623 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 08:25:18.841796 Successfully initialized strategy Hybrid with type HybridSignalStrategy
+DEBUG 2025-Dec-14 08:25:18.841809 Init datasources...
+DEBUG 2025-Dec-14 08:25:18.842696 Init server heartbeat generator...
+INFO 2025-Dec-14 08:25:18.842715 Archiving strategy snapshots
+DEBUG 2025-Dec-14 08:25:18.842740 Strategy request for events...
+DEBUG 2025-Dec-14 08:25:18.842783 StrategyRequestForEvents Done
+DEBUG 2025-Dec-14 08:25:18.860917 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_034926_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:25:18.860964 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_034715_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:25:18.860989 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235234_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:25:18.861013 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-11-04_073058_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:25:18.861039 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_035154_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:25:18.861071 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-29_005207_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:25:18.861102 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235509_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:25:18.861131 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-11-04_035056_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:25:18.861159 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235200_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:25:18.861194 Loaded results BACK_TestJunup2Strategy_2025-10-29_035730_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:25:18.861222 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-21_234457_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:25:18.861252 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_072504_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:25:18.861284 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_074028_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:25:18.861309 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_231417_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:25:18.861353 Loaded results BACK_Junup2InstanceTwoStrategy_2025-11-04_074207_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:25:18.861385 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235350_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:25:18.861410 Loaded results BACK_Junup2InstanceOneStrategy_20251103T000000_20251103T000000.cra
+DEBUG 2025-Dec-14 08:25:18.861448 Strategy Server initialized...
+DEBUG 2025-Dec-14 08:25:18.861458 Starting Strategy Server...
+INFO 2025-Dec-14 08:25:18.861633 ClientManager::StartStore:  starting pstore
+DEBUG 2025-Dec-14 08:25:18.861643 Start exec handler...
+DEBUG 2025-Dec-14 08:25:18.861644 Start processors..
+DEBUG 2025-Dec-14 08:25:18.861645 Start data sources...
+DEBUG 2025-Dec-14 08:25:18.861649 Start server heartbeat generator...
+DEBUG 2025-Dec-14 08:25:18.861651 StartServerHeartbeatGenerator Enter
+DEBUG 2025-Dec-14 08:25:18.861653 StartServerHeartbeatGenerator Exit
+DEBUG 2025-Dec-14 08:25:18.861653 BaselineStart hook called now...
+DEBUG 2025-Dec-14 08:25:18.861654 Start db source...
+DEBUG 2025-Dec-14 08:25:18.861654 Start client manager...
+DEBUG 2025-Dec-14 08:25:18.861986 Change strategy states to ready...
+INFO 2025-Dec-14 08:25:18.862034 ClientManager::StoreBody: writer thread started.
+DEBUG 2025-Dec-14 08:25:18.862205 Strategy Server started...
+DEBUG 2025-Dec-14 08:25:19.829647 OnLoginRequest received for connID = 0
+INFO 2025-Dec-14 08:25:19.830154 Console Command Issued: terminate Hybrid
+INFO 2025-Dec-14 08:25:19.862587 Strategy id = 7 with name = Hybrid was terminated.
+INFO 2025-Dec-14 08:25:19.863107 Client connection 0:  Received logout request
+DEBUG 2025-Dec-14 08:25:19.880024 OnLoginRequest received for connID = 1
+INFO 2025-Dec-14 08:25:19.880546 Console Command Issued: create_instance Hybrid HybridSignalStrategy UIUC SIM-1001-101 dlariviere 1000000 -symbols MSFT|AAPL|AMZN|AXP|BA|CAT|CRM|CSCO|CVX|DIA|DIS|DOW|GS|HD|HON|IBM
+DEBUG 2025-Dec-14 08:25:19.903784 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 08:25:19.903876 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 08:25:19.904872 Client connection 1:  Received logout request
+DEBUG 2025-Dec-14 08:25:19.920799 OnLoginRequest received for connID = 2
+INFO 2025-Dec-14 08:25:19.921178 Console Command Issued: set_simulator_params -latency_to_exchange 10
+INFO 2025-Dec-14 08:25:19.921826 Client connection 2:  Received logout request
+DEBUG 2025-Dec-14 08:25:19.938524 OnLoginRequest received for connID = 3
+ERROR 2025-Dec-14 08:25:19.938944 Received Strategy Studio exception on commandline: Unhandled command: set_param Hybrid debug true
+INFO 2025-Dec-14 08:25:19.939326 Client connection 3:  Received logout request
+DEBUG 2025-Dec-14 08:25:19.956016 OnLoginRequest received for connID = 4
+INFO 2025-Dec-14 08:25:19.956458 Console Command Issued: strategy_instance_list
+INFO 2025-Dec-14 08:25:19.956945 Client connection 4:  Received logout request
+DEBUG 2025-Dec-14 08:25:19.985273 OnLoginRequest received for connID = 5
+INFO 2025-Dec-14 08:25:19.985617 Console Command Issued: start_backtest 2019-09-13 2019-09-13 Hybrid 0
+INFO 2025-Dec-14 08:25:19.985666 Starting backtest experiment 1 running 1 strategy with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 08:25:19.988113 Started backtest experiment 1 with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 08:25:19.988573 Client connection 5:  Received logout request
+DEBUG 2025-Dec-14 08:25:21.231301 Saving results for strategy Hybrid in file ./backtesting-results/BACK_Hybrid_2025-12-14_082519_start_09-13-2019_end_09-13-2019.cra
+INFO 2025-Dec-14 08:25:21.232933 Backtest experiment 1 finished.
+DEBUG 2025-Dec-14 08:25:40.021419 OnLoginRequest received for connID = 6
+INFO 2025-Dec-14 08:25:40.021774 Console Command Issued: export_cra_file /home/junup2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_082519_start_09-13-2019_end_09-13-2019.cra /student_work/junup2/fin556-group06/hybrid-signal-strategy/backtesting-results/csv_files
+ERROR 2025-Dec-14 08:25:40.023263 export_cra_file /home/junup2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_082519_start_09-13-2019_end_09-13-2019.cra failed to complete properly. Unable to open result files.
+INFO 2025-Dec-14 08:25:40.023737 Client connection 6:  Received logout request
+DEBUG 2025-Dec-14 08:36:12.199011 Initializing Strategy Server...
+DEBUG 2025-Dec-14 08:36:12.199527 PRIMARY_ADAPTER: LimeAdapter
+INFO 2025-Dec-14 08:36:12.199551 PROCESSOR_LOG_LEVEL configured as DEBUG
+INFO 2025-Dec-14 08:36:12.199662 LOGS_DAYS_TO_KEEP configured as 0
+INFO 2025-Dec-14 08:36:12.199988 Strategy Studio Server v 3.4.0.0
+INFO 2025-Dec-14 08:36:12.200075 Protocol Version v21.0
+DEBUG 2025-Dec-14 08:36:12.200293 Starting DatabaseMgr...
+DEBUG 2025-Dec-14 08:36:12.202480 Init timekeeper...
+DEBUG 2025-Dec-14 08:36:12.202491 Init OrderIDMgr...
+DEBUG 2025-Dec-14 08:36:12.202840 Init ExecProviders table...
+DEBUG 2025-Dec-14 08:36:12.202852 Init initcorporateactionsloader...
+DEBUG 2025-Dec-14 08:36:12.203633 Init readexchangesfile...
+INFO 2025-Dec-14 08:36:12.203740 Could not open param file exchanges.txt
+DEBUG 2025-Dec-14 08:36:12.203753 Init market center fees...
+DEBUG 2025-Dec-14 08:36:12.203763 Unable to open MarketCenterFees file fees_BACKTESTING.txt
+DEBUG 2025-Dec-14 08:36:12.203764 Init initinstrumentmgr...
+DEBUG 2025-Dec-14 08:36:12.205815 Reading holidays.txt file...
+DEBUG 2025-Dec-14 08:36:12.205833 Init initprocessors...
+INFO 2025-Dec-14 08:36:12.206167 MessageStore::Init:  Opened pstore: ./pstore/StrategyServer_20251214.store
+DEBUG 2025-Dec-14 08:36:12.206180 Init initclientmanager...
+INFO 2025-Dec-14 08:36:12.208905 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/Junup2.so ...
+INFO 2025-Dec-14 08:36:12.209112 Server loaded new strategy type Junup2Strategy
+INFO 2025-Dec-14 08:36:12.209229 Loaded strategy type Junup2Strategy from strategy DLL.
+INFO 2025-Dec-14 08:36:12.211262 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/DiaIndexArb.so ...
+INFO 2025-Dec-14 08:36:12.211427 Server loaded new strategy type DiaIndexArbStrategy
+INFO 2025-Dec-14 08:36:12.211529 Loaded strategy type DiaIndexArbStrategy from strategy DLL.
+INFO 2025-Dec-14 08:36:12.213623 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/HybridSignalStrategy.so ...
+INFO 2025-Dec-14 08:36:12.213865 Server loaded new strategy type HybridSignalStrategy
+INFO 2025-Dec-14 08:36:12.214016 Loaded strategy type HybridSignalStrategy from strategy DLL.
+DEBUG 2025-Dec-14 08:36:12.214037 Init firm position tracker...
+DEBUG 2025-Dec-14 08:36:12.214040 Init initexechandler...
+DEBUG 2025-Dec-14 08:36:12.214217 Init strategy_factory_.LoadStrategiesFromStrategyInstanceTable...
+DEBUG 2025-Dec-14 08:36:12.214599 Init strategies...
+DEBUG 2025-Dec-14 08:36:12.214644 AddStrategyInstance: Building strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+INFO 2025-Dec-14 08:36:12.214677 Strategy TestOneDiaIndexArbStrategy added to processor 0.
+INFO 2025-Dec-14 08:36:12.214836 Successfully initialized strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+DEBUG 2025-Dec-14 08:36:12.214889 AddStrategyInstance: Building strategy TestJunup2Strategy with type Junup2Strategy
+INFO 2025-Dec-14 08:36:12.214919 Strategy TestJunup2Strategy added to processor 0.
+INFO 2025-Dec-14 08:36:12.215001 Successfully initialized strategy TestJunup2Strategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:36:12.215052 AddStrategyInstance: Building strategy Junup2InstanceOneStrategy with type Junup2Strategy
+INFO 2025-Dec-14 08:36:12.215095 Strategy Junup2InstanceOneStrategy added to processor 0.
+INFO 2025-Dec-14 08:36:12.215177 Successfully initialized strategy Junup2InstanceOneStrategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:36:12.215246 AddStrategyInstance: Building strategy Junup2InstanceTwoStrategy with type Junup2Strategy
+INFO 2025-Dec-14 08:36:12.215271 Strategy Junup2InstanceTwoStrategy added to processor 0.
+INFO 2025-Dec-14 08:36:12.215341 Successfully initialized strategy Junup2InstanceTwoStrategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:36:12.215411 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 08:36:12.215432 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 08:36:12.215588 Successfully initialized strategy Hybrid with type HybridSignalStrategy
+DEBUG 2025-Dec-14 08:36:12.215602 Init datasources...
+DEBUG 2025-Dec-14 08:36:12.216540 Init server heartbeat generator...
+INFO 2025-Dec-14 08:36:12.216556 Archiving strategy snapshots
+DEBUG 2025-Dec-14 08:36:12.216581 Strategy request for events...
+DEBUG 2025-Dec-14 08:36:12.216611 StrategyRequestForEvents Done
+DEBUG 2025-Dec-14 08:36:12.235012 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_034926_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:36:12.235060 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_034715_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:36:12.235086 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235234_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:36:12.235109 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-11-04_073058_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:36:12.235133 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_035154_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:36:12.235156 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-29_005207_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:36:12.235182 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235509_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:36:12.235206 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-11-04_035056_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:36:12.235235 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235200_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:36:12.235268 Loaded results BACK_TestJunup2Strategy_2025-10-29_035730_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:36:12.235294 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-21_234457_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:36:12.235333 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_072504_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:36:12.235379 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_074028_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:36:12.235413 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_231417_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:36:12.235440 Loaded results BACK_Junup2InstanceTwoStrategy_2025-11-04_074207_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:36:12.235467 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235350_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:36:12.235501 Loaded results BACK_Junup2InstanceOneStrategy_20251103T000000_20251103T000000.cra
+DEBUG 2025-Dec-14 08:36:12.235656 Strategy Server initialized...
+DEBUG 2025-Dec-14 08:36:12.235818 Starting Strategy Server...
+INFO 2025-Dec-14 08:36:12.236137 ClientManager::StartStore:  starting pstore
+DEBUG 2025-Dec-14 08:36:12.236147 Start exec handler...
+DEBUG 2025-Dec-14 08:36:12.236149 Start processors..
+DEBUG 2025-Dec-14 08:36:12.236150 Start data sources...
+DEBUG 2025-Dec-14 08:36:12.236152 Start server heartbeat generator...
+DEBUG 2025-Dec-14 08:36:12.236153 StartServerHeartbeatGenerator Enter
+DEBUG 2025-Dec-14 08:36:12.236154 StartServerHeartbeatGenerator Exit
+DEBUG 2025-Dec-14 08:36:12.236155 BaselineStart hook called now...
+DEBUG 2025-Dec-14 08:36:12.236155 Start db source...
+DEBUG 2025-Dec-14 08:36:12.236155 Start client manager...
+INFO 2025-Dec-14 08:36:12.236312 ClientManager::StoreBody: writer thread started.
+DEBUG 2025-Dec-14 08:36:12.236452 Change strategy states to ready...
+DEBUG 2025-Dec-14 08:36:12.236804 Strategy Server started...
+DEBUG 2025-Dec-14 08:36:13.205096 OnLoginRequest received for connID = 0
+INFO 2025-Dec-14 08:36:13.205390 Console Command Issued: terminate Hybrid
+INFO 2025-Dec-14 08:36:13.233171 Strategy id = 8 with name = Hybrid was terminated.
+INFO 2025-Dec-14 08:36:13.234317 Client connection 0:  Received logout request
+DEBUG 2025-Dec-14 08:36:13.242009 OnLoginRequest received for connID = 1
+INFO 2025-Dec-14 08:36:13.242423 Console Command Issued: create_instance Hybrid HybridSignalStrategy UIUC SIM-1001-101 dlariviere 1000000 -symbols MSFT|AAPL|AMZN|AXP|BA|CAT|CRM|CSCO|CVX|DIA|DIS|DOW|GS|HD|HON|IBM
+DEBUG 2025-Dec-14 08:36:13.264607 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 08:36:13.264696 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 08:36:13.265906 Client connection 1:  Received logout request
+DEBUG 2025-Dec-14 08:36:13.272901 OnLoginRequest received for connID = 2
+INFO 2025-Dec-14 08:36:13.273187 Console Command Issued: set_simulator_params -latency_to_exchange 10
+INFO 2025-Dec-14 08:36:13.273951 Client connection 2:  Received logout request
+DEBUG 2025-Dec-14 08:36:13.290519 OnLoginRequest received for connID = 3
+ERROR 2025-Dec-14 08:36:13.290986 Received Strategy Studio exception on commandline: Unhandled command: set_param Hybrid debug true
+INFO 2025-Dec-14 08:36:13.291684 Client connection 3:  Received logout request
+DEBUG 2025-Dec-14 08:36:13.308866 OnLoginRequest received for connID = 4
+INFO 2025-Dec-14 08:36:13.309212 Console Command Issued: strategy_instance_list
+INFO 2025-Dec-14 08:36:13.309992 Client connection 4:  Received logout request
+DEBUG 2025-Dec-14 08:36:13.339798 OnLoginRequest received for connID = 5
+INFO 2025-Dec-14 08:36:13.340176 Console Command Issued: start_backtest 2019-09-13 2019-09-13 Hybrid 0
+INFO 2025-Dec-14 08:36:13.340231 Starting backtest experiment 1 running 1 strategy with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 08:36:13.343222 Started backtest experiment 1 with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 08:36:13.343790 Client connection 5:  Received logout request
+DEBUG 2025-Dec-14 08:36:14.560485 Saving results for strategy Hybrid in file ./backtesting-results/BACK_Hybrid_2025-12-14_083613_start_09-13-2019_end_09-13-2019.cra
+INFO 2025-Dec-14 08:36:14.563013 Backtest experiment 1 finished.
+DEBUG 2025-Dec-14 08:36:33.391955 OnLoginRequest received for connID = 6
+INFO 2025-Dec-14 08:36:33.392463 Console Command Issued: export_cra_file /home/junup2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_083613_start_09-13-2019_end_09-13-2019.cra /student_work/junup2/fin556-group06/hybrid-signal-strategy/backtesting-results/csv_files
+ERROR 2025-Dec-14 08:36:33.393178 export_cra_file /home/junup2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_083613_start_09-13-2019_end_09-13-2019.cra failed to complete properly. Unable to open result files.
+INFO 2025-Dec-14 08:36:33.393882 Client connection 6:  Received logout request
+DEBUG 2025-Dec-14 08:41:36.183779 Initializing Strategy Server...
+DEBUG 2025-Dec-14 08:41:36.187072 PRIMARY_ADAPTER: LimeAdapter
+INFO 2025-Dec-14 08:41:36.187100 PROCESSOR_LOG_LEVEL configured as DEBUG
+INFO 2025-Dec-14 08:41:36.187131 LOGS_DAYS_TO_KEEP configured as 0
+INFO 2025-Dec-14 08:41:36.187453 Strategy Studio Server v 3.4.0.0
+INFO 2025-Dec-14 08:41:36.187469 Protocol Version v21.0
+DEBUG 2025-Dec-14 08:41:36.187785 Starting DatabaseMgr...
+DEBUG 2025-Dec-14 08:41:36.189944 Init timekeeper...
+DEBUG 2025-Dec-14 08:41:36.189956 Init OrderIDMgr...
+DEBUG 2025-Dec-14 08:41:36.190334 Init ExecProviders table...
+DEBUG 2025-Dec-14 08:41:36.190363 Init initcorporateactionsloader...
+DEBUG 2025-Dec-14 08:41:36.191084 Init readexchangesfile...
+INFO 2025-Dec-14 08:41:36.191221 Could not open param file exchanges.txt
+DEBUG 2025-Dec-14 08:41:36.191235 Init market center fees...
+DEBUG 2025-Dec-14 08:41:36.191249 Unable to open MarketCenterFees file fees_BACKTESTING.txt
+DEBUG 2025-Dec-14 08:41:36.191251 Init initinstrumentmgr...
+DEBUG 2025-Dec-14 08:41:36.192408 Reading holidays.txt file...
+DEBUG 2025-Dec-14 08:41:36.192428 Init initprocessors...
+INFO 2025-Dec-14 08:41:36.192809 MessageStore::Init:  Opened pstore: ./pstore/StrategyServer_20251214.store
+DEBUG 2025-Dec-14 08:41:36.192823 Init initclientmanager...
+INFO 2025-Dec-14 08:41:36.195406 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/Junup2.so ...
+INFO 2025-Dec-14 08:41:36.195561 Server loaded new strategy type Junup2Strategy
+INFO 2025-Dec-14 08:41:36.195682 Loaded strategy type Junup2Strategy from strategy DLL.
+INFO 2025-Dec-14 08:41:36.197715 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/DiaIndexArb.so ...
+INFO 2025-Dec-14 08:41:36.197843 Server loaded new strategy type DiaIndexArbStrategy
+INFO 2025-Dec-14 08:41:36.197897 Loaded strategy type DiaIndexArbStrategy from strategy DLL.
+INFO 2025-Dec-14 08:41:36.199935 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/HybridSignalStrategy.so ...
+INFO 2025-Dec-14 08:41:36.200148 Server loaded new strategy type HybridSignalStrategy
+INFO 2025-Dec-14 08:41:36.200270 Loaded strategy type HybridSignalStrategy from strategy DLL.
+DEBUG 2025-Dec-14 08:41:36.200291 Init firm position tracker...
+DEBUG 2025-Dec-14 08:41:36.200294 Init initexechandler...
+DEBUG 2025-Dec-14 08:41:36.200575 Init strategy_factory_.LoadStrategiesFromStrategyInstanceTable...
+DEBUG 2025-Dec-14 08:41:36.200968 Init strategies...
+DEBUG 2025-Dec-14 08:41:36.201045 AddStrategyInstance: Building strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+INFO 2025-Dec-14 08:41:36.201088 Strategy TestOneDiaIndexArbStrategy added to processor 0.
+INFO 2025-Dec-14 08:41:36.201271 Successfully initialized strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+DEBUG 2025-Dec-14 08:41:36.201385 AddStrategyInstance: Building strategy TestJunup2Strategy with type Junup2Strategy
+INFO 2025-Dec-14 08:41:36.201463 Strategy TestJunup2Strategy added to processor 0.
+INFO 2025-Dec-14 08:41:36.201596 Successfully initialized strategy TestJunup2Strategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:41:36.201683 AddStrategyInstance: Building strategy Junup2InstanceOneStrategy with type Junup2Strategy
+INFO 2025-Dec-14 08:41:36.201720 Strategy Junup2InstanceOneStrategy added to processor 0.
+INFO 2025-Dec-14 08:41:36.201825 Successfully initialized strategy Junup2InstanceOneStrategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:41:36.201916 AddStrategyInstance: Building strategy Junup2InstanceTwoStrategy with type Junup2Strategy
+INFO 2025-Dec-14 08:41:36.201954 Strategy Junup2InstanceTwoStrategy added to processor 0.
+INFO 2025-Dec-14 08:41:36.202061 Successfully initialized strategy Junup2InstanceTwoStrategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:41:36.202133 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 08:41:36.202161 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 08:41:36.202391 Successfully initialized strategy Hybrid with type HybridSignalStrategy
+DEBUG 2025-Dec-14 08:41:36.202403 Init datasources...
+DEBUG 2025-Dec-14 08:41:36.203302 Init server heartbeat generator...
+INFO 2025-Dec-14 08:41:36.203321 Archiving strategy snapshots
+DEBUG 2025-Dec-14 08:41:36.203380 Strategy request for events...
+DEBUG 2025-Dec-14 08:41:36.203419 StrategyRequestForEvents Done
+DEBUG 2025-Dec-14 08:41:36.221840 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_034926_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:41:36.221903 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_034715_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:41:36.221944 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235234_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:41:36.221983 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-11-04_073058_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:41:36.222024 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_035154_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:41:36.222071 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-29_005207_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:41:36.222109 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235509_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:41:36.222148 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-11-04_035056_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:41:36.222190 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235200_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:41:36.222254 Loaded results BACK_TestJunup2Strategy_2025-10-29_035730_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:41:36.222294 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-21_234457_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:41:36.222365 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_072504_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:41:36.222403 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_074028_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:41:36.222450 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_231417_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:41:36.222488 Loaded results BACK_Junup2InstanceTwoStrategy_2025-11-04_074207_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:41:36.222535 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235350_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:41:36.222581 Loaded results BACK_Junup2InstanceOneStrategy_20251103T000000_20251103T000000.cra
+DEBUG 2025-Dec-14 08:41:36.222639 Strategy Server initialized...
+DEBUG 2025-Dec-14 08:41:36.222672 Starting Strategy Server...
+INFO 2025-Dec-14 08:41:36.222925 ClientManager::StartStore:  starting pstore
+DEBUG 2025-Dec-14 08:41:36.222935 Start exec handler...
+DEBUG 2025-Dec-14 08:41:36.222936 Start processors..
+DEBUG 2025-Dec-14 08:41:36.222937 Start data sources...
+DEBUG 2025-Dec-14 08:41:36.222939 Start server heartbeat generator...
+DEBUG 2025-Dec-14 08:41:36.222939 StartServerHeartbeatGenerator Enter
+DEBUG 2025-Dec-14 08:41:36.222940 StartServerHeartbeatGenerator Exit
+DEBUG 2025-Dec-14 08:41:36.222941 BaselineStart hook called now...
+DEBUG 2025-Dec-14 08:41:36.222941 Start db source...
+DEBUG 2025-Dec-14 08:41:36.222942 Start client manager...
+INFO 2025-Dec-14 08:41:36.223148 ClientManager::StoreBody: writer thread started.
+DEBUG 2025-Dec-14 08:41:36.223287 Change strategy states to ready...
+DEBUG 2025-Dec-14 08:41:36.223663 Strategy Server started...
+DEBUG 2025-Dec-14 08:41:37.188484 OnLoginRequest received for connID = 0
+INFO 2025-Dec-14 08:41:37.188911 Console Command Issued: terminate Hybrid
+INFO 2025-Dec-14 08:41:37.218390 Strategy id = 9 with name = Hybrid was terminated.
+INFO 2025-Dec-14 08:41:37.219019 Client connection 0:  Received logout request
+DEBUG 2025-Dec-14 08:41:37.226614 OnLoginRequest received for connID = 1
+INFO 2025-Dec-14 08:41:37.227154 Console Command Issued: create_instance Hybrid HybridSignalStrategy UIUC SIM-1001-101 dlariviere 1000000 -symbols MSFT|AAPL|AMZN|AXP|BA|CAT|CRM|CSCO|CVX|DIA|DIS|DOW|GS|HD|HON|IBM
+DEBUG 2025-Dec-14 08:41:37.245260 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 08:41:37.245359 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 08:41:37.246473 Client connection 1:  Received logout request
+DEBUG 2025-Dec-14 08:41:37.253736 OnLoginRequest received for connID = 2
+INFO 2025-Dec-14 08:41:37.254081 Console Command Issued: set_simulator_params -latency_to_exchange 10
+INFO 2025-Dec-14 08:41:37.254715 Client connection 2:  Received logout request
+DEBUG 2025-Dec-14 08:41:37.271848 OnLoginRequest received for connID = 3
+ERROR 2025-Dec-14 08:41:37.272435 Received Strategy Studio exception on commandline: Unhandled command: set_param Hybrid debug true
+INFO 2025-Dec-14 08:41:37.272890 Client connection 3:  Received logout request
+DEBUG 2025-Dec-14 08:41:37.279405 OnLoginRequest received for connID = 4
+INFO 2025-Dec-14 08:41:37.279882 Console Command Issued: strategy_instance_list
+INFO 2025-Dec-14 08:41:37.280331 Client connection 4:  Received logout request
+DEBUG 2025-Dec-14 08:41:37.310625 OnLoginRequest received for connID = 5
+INFO 2025-Dec-14 08:41:37.311111 Console Command Issued: start_backtest 2019-09-13 2019-09-13 Hybrid 0
+INFO 2025-Dec-14 08:41:37.311142 Starting backtest experiment 1 running 1 strategy with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 08:41:37.313555 Started backtest experiment 1 with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 08:41:37.313984 Client connection 5:  Received logout request
+DEBUG 2025-Dec-14 08:41:38.617866 Saving results for strategy Hybrid in file ./backtesting-results/BACK_Hybrid_2025-12-14_084137_start_09-13-2019_end_09-13-2019.cra
+INFO 2025-Dec-14 08:41:38.619450 Backtest experiment 1 finished.
+DEBUG 2025-Dec-14 08:41:57.349227 OnLoginRequest received for connID = 6
+INFO 2025-Dec-14 08:41:57.349660 Console Command Issued: export_cra_file /home/junup2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_084137_start_09-13-2019_end_09-13-2019.cra /home/junup2/ss/bt/backtesting-results/csv_files
+INFO 2025-Dec-14 08:41:57.350911 export_cra_file /home/junup2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_084137_start_09-13-2019_end_09-13-2019.cra completed successfully. 
+INFO 2025-Dec-14 08:41:57.351273 Client connection 6:  Received logout request
+DEBUG 2025-Dec-14 08:42:53.994986 Initializing Strategy Server...
+DEBUG 2025-Dec-14 08:42:53.995666 PRIMARY_ADAPTER: LimeAdapter
+INFO 2025-Dec-14 08:42:53.995676 PROCESSOR_LOG_LEVEL configured as DEBUG
+INFO 2025-Dec-14 08:42:53.995825 LOGS_DAYS_TO_KEEP configured as 0
+INFO 2025-Dec-14 08:42:53.996177 Strategy Studio Server v 3.4.0.0
+INFO 2025-Dec-14 08:42:53.996256 Protocol Version v21.0
+DEBUG 2025-Dec-14 08:42:53.996625 Starting DatabaseMgr...
+DEBUG 2025-Dec-14 08:42:53.998814 Init timekeeper...
+DEBUG 2025-Dec-14 08:42:53.998828 Init OrderIDMgr...
+DEBUG 2025-Dec-14 08:42:53.999242 Init ExecProviders table...
+DEBUG 2025-Dec-14 08:42:53.999254 Init initcorporateactionsloader...
+DEBUG 2025-Dec-14 08:42:54.000048 Init readexchangesfile...
+INFO 2025-Dec-14 08:42:54.000183 Could not open param file exchanges.txt
+DEBUG 2025-Dec-14 08:42:54.000198 Init market center fees...
+DEBUG 2025-Dec-14 08:42:54.000209 Unable to open MarketCenterFees file fees_BACKTESTING.txt
+DEBUG 2025-Dec-14 08:42:54.000210 Init initinstrumentmgr...
+DEBUG 2025-Dec-14 08:42:54.002363 Reading holidays.txt file...
+DEBUG 2025-Dec-14 08:42:54.002383 Init initprocessors...
+INFO 2025-Dec-14 08:42:54.002742 MessageStore::Init:  Opened pstore: ./pstore/StrategyServer_20251214.store
+DEBUG 2025-Dec-14 08:42:54.002756 Init initclientmanager...
+INFO 2025-Dec-14 08:42:54.005516 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/Junup2.so ...
+INFO 2025-Dec-14 08:42:54.005701 Server loaded new strategy type Junup2Strategy
+INFO 2025-Dec-14 08:42:54.005831 Loaded strategy type Junup2Strategy from strategy DLL.
+INFO 2025-Dec-14 08:42:54.007910 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/DiaIndexArb.so ...
+INFO 2025-Dec-14 08:42:54.008089 Server loaded new strategy type DiaIndexArbStrategy
+INFO 2025-Dec-14 08:42:54.008216 Loaded strategy type DiaIndexArbStrategy from strategy DLL.
+INFO 2025-Dec-14 08:42:54.010473 Loading strategy dll /home/junup2/ss/bt/strategies_dlls/HybridSignalStrategy.so ...
+INFO 2025-Dec-14 08:42:54.010716 Server loaded new strategy type HybridSignalStrategy
+INFO 2025-Dec-14 08:42:54.010880 Loaded strategy type HybridSignalStrategy from strategy DLL.
+DEBUG 2025-Dec-14 08:42:54.010903 Init firm position tracker...
+DEBUG 2025-Dec-14 08:42:54.010906 Init initexechandler...
+DEBUG 2025-Dec-14 08:42:54.011089 Init strategy_factory_.LoadStrategiesFromStrategyInstanceTable...
+DEBUG 2025-Dec-14 08:42:54.011491 Init strategies...
+DEBUG 2025-Dec-14 08:42:54.011543 AddStrategyInstance: Building strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+INFO 2025-Dec-14 08:42:54.011575 Strategy TestOneDiaIndexArbStrategy added to processor 0.
+INFO 2025-Dec-14 08:42:54.011747 Successfully initialized strategy TestOneDiaIndexArbStrategy with type DiaIndexArbStrategy
+DEBUG 2025-Dec-14 08:42:54.011802 AddStrategyInstance: Building strategy TestJunup2Strategy with type Junup2Strategy
+INFO 2025-Dec-14 08:42:54.011828 Strategy TestJunup2Strategy added to processor 0.
+INFO 2025-Dec-14 08:42:54.011919 Successfully initialized strategy TestJunup2Strategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:42:54.011970 AddStrategyInstance: Building strategy Junup2InstanceOneStrategy with type Junup2Strategy
+INFO 2025-Dec-14 08:42:54.011993 Strategy Junup2InstanceOneStrategy added to processor 0.
+INFO 2025-Dec-14 08:42:54.012071 Successfully initialized strategy Junup2InstanceOneStrategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:42:54.012129 AddStrategyInstance: Building strategy Junup2InstanceTwoStrategy with type Junup2Strategy
+INFO 2025-Dec-14 08:42:54.012145 Strategy Junup2InstanceTwoStrategy added to processor 0.
+INFO 2025-Dec-14 08:42:54.012211 Successfully initialized strategy Junup2InstanceTwoStrategy with type Junup2Strategy
+DEBUG 2025-Dec-14 08:42:54.012261 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 08:42:54.012284 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 08:42:54.012510 Successfully initialized strategy Hybrid with type HybridSignalStrategy
+DEBUG 2025-Dec-14 08:42:54.012524 Init datasources...
+DEBUG 2025-Dec-14 08:42:54.013495 Init server heartbeat generator...
+INFO 2025-Dec-14 08:42:54.013514 Archiving strategy snapshots
+DEBUG 2025-Dec-14 08:42:54.013538 Strategy request for events...
+DEBUG 2025-Dec-14 08:42:54.013577 StrategyRequestForEvents Done
+DEBUG 2025-Dec-14 08:42:54.033071 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_034926_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:42:54.033127 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_034715_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:42:54.033154 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235234_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:42:54.033188 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-11-04_073058_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:42:54.033228 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_035154_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:42:54.033262 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-29_005207_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:42:54.033297 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235509_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:42:54.033332 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-11-04_035056_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:42:54.033381 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235200_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:42:54.033416 Loaded results BACK_TestJunup2Strategy_2025-10-29_035730_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:42:54.033449 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-21_234457_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:42:54.033490 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_072504_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:42:54.033523 Loaded results BACK_Junup2InstanceOneStrategy_2025-11-04_074028_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:42:54.033551 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_231417_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:42:54.033587 Loaded results BACK_Junup2InstanceTwoStrategy_2025-11-04_074207_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:42:54.033616 Loaded results BACK_TestOneDiaIndexArbStrategy_2025-10-28_235350_start_09-13-2019_end_09-13-2019.cra
+DEBUG 2025-Dec-14 08:42:54.033645 Loaded results BACK_Junup2InstanceOneStrategy_20251103T000000_20251103T000000.cra
+DEBUG 2025-Dec-14 08:42:54.033797 Strategy Server initialized...
+DEBUG 2025-Dec-14 08:42:54.033970 Starting Strategy Server...
+INFO 2025-Dec-14 08:42:54.034366 ClientManager::StartStore:  starting pstore
+DEBUG 2025-Dec-14 08:42:54.034378 Start exec handler...
+DEBUG 2025-Dec-14 08:42:54.034380 Start processors..
+DEBUG 2025-Dec-14 08:42:54.034380 Start data sources...
+DEBUG 2025-Dec-14 08:42:54.034382 Start server heartbeat generator...
+DEBUG 2025-Dec-14 08:42:54.034383 StartServerHeartbeatGenerator Enter
+DEBUG 2025-Dec-14 08:42:54.034384 StartServerHeartbeatGenerator Exit
+DEBUG 2025-Dec-14 08:42:54.034384 BaselineStart hook called now...
+DEBUG 2025-Dec-14 08:42:54.034385 Start db source...
+DEBUG 2025-Dec-14 08:42:54.034385 Start client manager...
+INFO 2025-Dec-14 08:42:54.034479 ClientManager::StoreBody: writer thread started.
+DEBUG 2025-Dec-14 08:42:54.034733 Change strategy states to ready...
+DEBUG 2025-Dec-14 08:42:54.035136 Strategy Server started...
+DEBUG 2025-Dec-14 08:42:55.000146 OnLoginRequest received for connID = 0
+INFO 2025-Dec-14 08:42:55.000575 Console Command Issued: terminate Hybrid
+INFO 2025-Dec-14 08:42:55.029452 Strategy id = 10 with name = Hybrid was terminated.
+INFO 2025-Dec-14 08:42:55.030791 Client connection 0:  Received logout request
+DEBUG 2025-Dec-14 08:42:55.039382 OnLoginRequest received for connID = 1
+INFO 2025-Dec-14 08:42:55.039816 Console Command Issued: create_instance Hybrid HybridSignalStrategy UIUC SIM-1001-101 dlariviere 1000000 -symbols MSFT|AAPL|AMZN|AXP|BA|CAT|CRM|CSCO|CVX|DIA|DIS|DOW|GS|HD|HON|IBM
+DEBUG 2025-Dec-14 08:42:55.058743 AddStrategyInstance: Building strategy Hybrid with type HybridSignalStrategy
+INFO 2025-Dec-14 08:42:55.058828 Strategy Hybrid added to processor 0.
+INFO 2025-Dec-14 08:42:55.060409 Client connection 1:  Received logout request
+DEBUG 2025-Dec-14 08:42:55.067145 OnLoginRequest received for connID = 2
+INFO 2025-Dec-14 08:42:55.067563 Console Command Issued: set_simulator_params -latency_to_exchange 10
+INFO 2025-Dec-14 08:42:55.068428 Client connection 2:  Received logout request
+DEBUG 2025-Dec-14 08:42:55.086414 OnLoginRequest received for connID = 3
+ERROR 2025-Dec-14 08:42:55.086927 Received Strategy Studio exception on commandline: Unhandled command: set_param Hybrid debug true
+INFO 2025-Dec-14 08:42:55.087689 Client connection 3:  Received logout request
+DEBUG 2025-Dec-14 08:42:55.105600 OnLoginRequest received for connID = 4
+INFO 2025-Dec-14 08:42:55.105925 Console Command Issued: strategy_instance_list
+INFO 2025-Dec-14 08:42:55.106640 Client connection 4:  Received logout request
+DEBUG 2025-Dec-14 08:42:55.127515 OnLoginRequest received for connID = 5
+INFO 2025-Dec-14 08:42:55.127818 Console Command Issued: start_backtest 2019-09-13 2019-09-13 Hybrid 0
+INFO 2025-Dec-14 08:42:55.127885 Starting backtest experiment 1 running 1 strategy with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 08:42:55.130877 Started backtest experiment 1 with start date 2019-Sep-13 and end date 2019-Sep-13
+INFO 2025-Dec-14 08:42:55.131488 Client connection 5:  Received logout request
+DEBUG 2025-Dec-14 08:42:56.367128 Saving results for strategy Hybrid in file ./backtesting-results/BACK_Hybrid_2025-12-14_084255_start_09-13-2019_end_09-13-2019.cra
+INFO 2025-Dec-14 08:42:56.369358 Backtest experiment 1 finished.
+DEBUG 2025-Dec-14 08:43:15.182210 OnLoginRequest received for connID = 6
+INFO 2025-Dec-14 08:43:15.182636 Console Command Issued: export_cra_file /home/junup2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_084255_start_09-13-2019_end_09-13-2019.cra /home/junup2/ss/bt/backtesting-results/csv_files
+INFO 2025-Dec-14 08:43:15.183868 export_cra_file /home/junup2/ss/bt/backtesting-results/BACK_Hybrid_2025-12-14_084255_start_09-13-2019_end_09-13-2019.cra completed successfully. 
+INFO 2025-Dec-14 08:43:15.184609 Client connection 6:  Received logout request
