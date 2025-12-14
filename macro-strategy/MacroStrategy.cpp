@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #endif
 
-#include "SMAReactiveTakerStrategy.h"
+#include "MacroStrategy.h"
 
 #include "AllEventMsg.h"
 #include "ExecutionTypes.h"
@@ -14,8 +14,9 @@
 
 using namespace RCM::StrategyStudio;
 using namespace RCM::StrategyStudio::MarketModels;
+using namespace RCM::StrategyStudio::Utilities;
 
-SMAReactiveTakerStrategy::SMAReactiveTakerStrategy(StrategyID strategyID,
+MacroStrategy::MacroStrategy(StrategyID strategyID,
                                                    const std::string &strategyName,
                                                    const std::string &groupName)
     : Strategy(strategyID, strategyName, groupName),
@@ -40,13 +41,13 @@ SMAReactiveTakerStrategy::SMAReactiveTakerStrategy(StrategyID strategyID,
       use_market_orders_(true) {
 }
 
-SMAReactiveTakerStrategy::~SMAReactiveTakerStrategy() {}
+MacroStrategy::~MacroStrategy() {}
 
-void SMAReactiveTakerStrategy::OnResetStrategyState() {
+void MacroStrategy::OnResetStrategyState() {
     state_.clear();
 }
 
-void SMAReactiveTakerStrategy::DefineStrategyParams() {
+void MacroStrategy::DefineStrategyParams() {
     params().CreateParam(CreateStrategyParamArgs("debug", STRATEGY_PARAM_TYPE_RUNTIME, VALUE_TYPE_BOOL, debug_));
 
     params().CreateParam(CreateStrategyParamArgs("bar_interval_sec", STRATEGY_PARAM_TYPE_STARTUP, VALUE_TYPE_INT, bar_interval_sec_));
@@ -73,19 +74,19 @@ void SMAReactiveTakerStrategy::DefineStrategyParams() {
     params().CreateParam(CreateStrategyParamArgs("use_market_orders", STRATEGY_PARAM_TYPE_STARTUP, VALUE_TYPE_BOOL, use_market_orders_));
 }
 
-void SMAReactiveTakerStrategy::DefineStrategyCommands() {
+void MacroStrategy::DefineStrategyCommands() {
     // Keep it minimal (no repricing logic; we don't subscribe to quotes under the "bars only" constraint).
     commands().AddCommand(StrategyCommand(1, "Cancel All Orders"));
 }
 
-void SMAReactiveTakerStrategy::RegisterForStrategyEvents(StrategyEventRegister *eventRegister, DateType currDate) {
+void MacroStrategy::RegisterForStrategyEvents(StrategyEventRegister *eventRegister, DateType currDate) {
     // Constraint: only RegisterForBars.
     for (SymbolSetConstIter it = symbols_begin(); it != symbols_end(); ++it) {
         eventRegister->RegisterForBars(*it, BAR_TYPE_TIME, bar_interval_sec_);
     }
 }
 
-double SMAReactiveTakerStrategy::ComputeMacroWeight(InstrumentState &st, double close) {
+double MacroStrategy::ComputeMacroWeight(InstrumentState &st, double close) {
     const double eps = 1e-9;
 
     // Maintain rolling windows.
@@ -186,7 +187,7 @@ double SMAReactiveTakerStrategy::ComputeMacroWeight(InstrumentState &st, double 
     return st.w_macro;
 }
 
-bool SMAReactiveTakerStrategy::ShouldFlatten(const Instrument *instrument,
+bool MacroStrategy::ShouldFlatten(const Instrument *instrument,
                                              InstrumentState &st,
                                              int current_pos,
                                              double close) const {
@@ -223,7 +224,7 @@ bool SMAReactiveTakerStrategy::ShouldFlatten(const Instrument *instrument,
     return false;
 }
 
-void SMAReactiveTakerStrategy::OnBar(const BarEventMsg &msg) {
+void MacroStrategy::OnBar(const BarEventMsg &msg) {
     const Instrument *inst = &msg.instrument();
     const double close = msg.bar().close();
 
@@ -302,7 +303,7 @@ void SMAReactiveTakerStrategy::OnBar(const BarEventMsg &msg) {
     }
 }
 
-void SMAReactiveTakerStrategy::AdjustPortfolio(const Instrument *instrument, int desired_position, double /*ref_price*/) {
+void MacroStrategy::AdjustPortfolio(const Instrument *instrument, int desired_position, double /*ref_price*/) {
     const int current_pos = portfolio().position(instrument);
     const int trade_size = desired_position - current_pos;
 
@@ -317,7 +318,7 @@ void SMAReactiveTakerStrategy::AdjustPortfolio(const Instrument *instrument, int
     SendMarketOrder(instrument, trade_size);
 }
 
-void SMAReactiveTakerStrategy::SendMarketOrder(const Instrument *instrument, int trade_size) {
+void MacroStrategy::SendMarketOrder(const Instrument *instrument, int trade_size) {
     if (trade_size == 0)
         return;
 
@@ -341,7 +342,7 @@ void SMAReactiveTakerStrategy::SendMarketOrder(const Instrument *instrument, int
     trade_actions()->SendNewOrder(params);
 }
 
-void SMAReactiveTakerStrategy::OnStrategyCommand(const StrategyCommandEventMsg &msg) {
+void MacroStrategy::OnStrategyCommand(const StrategyCommandEventMsg &msg) {
     switch (msg.command_id()) {
     case 1:
         trade_actions()->SendCancelAll();
@@ -352,7 +353,7 @@ void SMAReactiveTakerStrategy::OnStrategyCommand(const StrategyCommandEventMsg &
     }
 }
 
-void SMAReactiveTakerStrategy::OnParamChanged(StrategyParam &param) {
+void MacroStrategy::OnParamChanged(StrategyParam &param) {
     // Keep this exhaustive so runtime changes take effect.
     if (param.param_name() == "debug") {
         if (!param.Get(&debug_))
@@ -416,7 +417,7 @@ void SMAReactiveTakerStrategy::OnParamChanged(StrategyParam &param) {
 extern "C" {
 
 _STRATEGY_EXPORTS const char *GetType() {
-    return "SMAReactiveTakerStrategy";
+    return "MacroStrategy";
 }
 
 _STRATEGY_EXPORTS Strategy *CreateStrategy(const char *strategyType,
@@ -424,7 +425,7 @@ _STRATEGY_EXPORTS Strategy *CreateStrategy(const char *strategyType,
                                            const char *strategyName,
                                            const char *groupName) {
     if (strcmp(strategyType, GetType()) == 0) {
-        return new SMAReactiveTakerStrategy(strategyID, strategyName, groupName);
+        return new MacroStrategy(strategyID, strategyName, groupName);
     }
     return NULL;
 }

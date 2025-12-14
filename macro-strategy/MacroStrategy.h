@@ -117,13 +117,13 @@ struct InstrumentState {
 
 } // namespace
 
-class SMAReactiveTakerStrategy : public Strategy {
+class MacroStrategy : public Strategy {
 public:
     typedef boost::unordered_map<const Instrument *, InstrumentState> StateMap;
     typedef StateMap::iterator StateIter;
 
-    SMAReactiveTakerStrategy(StrategyID strategyID, const std::string &strategyName, const std::string &groupName);
-    ~SMAReactiveTakerStrategy();
+    MacroStrategy(StrategyID strategyID, const std::string &strategyName, const std::string &groupName);
+    ~MacroStrategy();
 
 public: /* IEventCallback */
     virtual void OnTrade(const TradeDataEventMsg &msg) {}
