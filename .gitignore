@@ -6,3 +6,9 @@ env/
 ENV/
 env.bak/
 venv.bak/
+
+*.o
+*.so
+
+__pycache__/
+*.pyc
