@@ -1,4 +1,6 @@
+<<<<<<< HEAD
 # group_06_project
+=======
 
 
 
@@ -15,14 +17,22 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
+<<<<<<< HEAD
 git remote add origin https://gitlab.engr.illinois.edu/fin556_algo_market_micro_fall_2025/fin556_algo_market_micro_fall_2025_06/group_06_project.git
+=======
+git remote add origin https://gitlab.engr.illinois.edu/junup2/fin556-group06.git
+>>>>>>> source/main
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
+<<<<<<< HEAD
 - [ ] [Set up project integrations](https://gitlab.engr.illinois.edu/fin556_algo_market_micro_fall_2025/fin556_algo_market_micro_fall_2025_06/group_06_project/-/settings/integrations)
+=======
+- [ ] [Set up project integrations](https://gitlab.engr.illinois.edu/junup2/fin556-group06/-/settings/integrations)
+>>>>>>> source/main
 
 ## Collaborate with your team
 
