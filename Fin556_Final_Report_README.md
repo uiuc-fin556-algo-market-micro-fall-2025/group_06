@@ -5,52 +5,64 @@
 
 ## Introduction and Overview
 
-This strategy can be summarized into two parts: a pricing function and a system that continuously trades from the current price to the target price. We combine a general macro view using a computationally light data-set (OHLCV) for the overall direction of trades, and then a computationally heavy data-set (orderbook) for execution.
+This strategy can be summarized into two parts: a pricing function and a system that continuously trades from the current price to the target price. We combine a general macro view using a computationally light data-set (OHLCV) for the overall direction of trades, and then a computationally heavy data-set (order book) for execution.
 
-The idea is simple: use macro-concepts to determine directional bias and parse noise, use speed instead of straight leverage to achieve returns beyond the risk-free rate.
+The idea is simple: use macro concepts to determine directional bias and parse noise, and use speed instead of straight leverage to achieve returns beyond the risk-free rate.
 
-**Implementation note:**  
-This separation is intentional. Macro signals are slow, robust, and regime-aware, while microstructure signals are fast, fragile, and execution-focused. Decoupling them allows independent tuning and failure isolation.
+This separation allows the strategy to remain robust at the signal level while relying on microstructure only where it adds value: execution.
 
 ---
 
-## Algorithm Outline
+## Algorithm Steps
 
-The algorithm is done in steps:
+The algorithm is executed in the following stages:
 
-1. The Macro Signal:  
-   \[
+1. **The Macro Signal**
+
+   $$
    W_{\text{macro}}(t) \in [-1, +1]
-   \]  
-   computed at bar boundaries and smoothed.
+   $$
 
-2. The Micro Signal:  
-   \[
+   Computed at bar boundaries and smoothed over time.
+
+2. **The Micro Signal**
+
+   $$
    A_{\text{micro}}(t) \in [-1, +1]
-   \]  
-   computed at every evaluation tick from the order book.
+   $$
 
-3. Bias Merge:  
-   \[
-   \text{bias}(t) =
-   \text{clip}\big(
-   \alpha W_{\text{macro}}(t)
-   + (1 - \alpha) A_{\text{micro}}(t),
-   -1, +1
-   \big)
-   \]
+   Computed at every evaluation tick using order book data.
 
-4. Bias to Target Position:  
-   \[
+3. **Bias Merge**
+
+   $$
+   \text{bias}(t)
+   =
+   \text{clip}\!\left(
+   \alpha\,W_{\text{macro}}(t)
+   +
+   (1-\alpha)\,A_{\text{micro}}(t),
+   -1,\,+1
+   \right)
+   $$
+
+4. **Bias to Target Position**
+
+   $$
    \text{target\_position}(t)
-   = \text{round}(\text{bias}(t) \cdot \text{max\_position})
-   \]
+   =
+   \text{round}\!\left(
+   \text{bias}(t)\cdot\text{max\_position}
+   \right)
+   $$
 
-5. Trade toward the target position with a single-contract deadzone.  
-   - Deadzone is used to reduce churn.
+5. **Execution**
 
-**Design rationale:**  
-Linear blending and discrete targeting are chosen deliberately for interpretability and debuggability. Nonlinear mappings were avoided to ensure that failures could be traced to specific signal components.
+   Trade toward the target position using a single-contract deadzone.
+
+   - The deadzone is used to reduce churn.
+
+The linear structure of the signal blending and sizing is intentional to ensure interpretability and ease of testing.
 
 ---
 
@@ -58,83 +70,78 @@ Linear blending and discrete targeting are chosen deliberately for interpretabil
 
 ### Macro Inputs
 
-This is just OHLCV bars in whichever candle timeframe we choose. As this is primarily used for a macro-bias, we do not need anything more granular than close data.
+This consists solely of OHLCV bars at a chosen candle timeframe. Since the macro signal is used only to determine directional bias, no higher-frequency data than close prices is required.
 
-**Commentary:**  
-Using closes avoids sensitivity to intrabar noise while remaining robust across assets and data vendors.
+This choice reduces noise sensitivity and improves cross-asset robustness.
 
 ---
 
 ### Micro Inputs
 
-At the very minimum, we require:
-- Best bid and best ask
-- Queue size at the top-of-market price
+At a minimum, the micro signal requires:
+- Best bid and best ask prices
+- Queue size at the top of book
 
-Additionally, the algorithm benefits from deeper orderbook data in order to compute deeper orderbook imbalances (OBI).
+The strategy benefits from deeper order book data in order to compute weighted order book imbalance across multiple depth levels.
 
-**Commentary:**  
-Deeper book data improves signal stability but is not strictly required, making the strategy deployable across venues with varying data quality.
+Deeper data improves signal quality but is not strictly required, allowing deployment across venues with varying data availability.
 
 ---
 
 ## Signal Construction
 
-The macro-signal is constructed through a weighted mix of three subscores:
+The macro signal is constructed as a weighted mix of three subscores:
 
 1. EMA crossover momentum  
-2. Bollinger mean reversion vs breakout  
+2. Bollinger mean reversion versus breakout behavior  
 3. A trend filter  
 
-Each subscore is normalized and bounded to ensure comparability.
+Each subscore is normalized and bounded to ensure stability across regimes.
 
 ---
 
 ### EMA Crossover Momentum
 
-We use fast and slow EMAs computed on closes, then take the difference normalized by recent volatility. This normalization prevents large leverage slips or exaggerated signals during high-volatility regimes.
+Fast and slow EMAs are computed on close prices. The difference between them is normalized by recent volatility to prevent exaggerated signals during high-volatility regimes.
 
-**Interpretation:**  
-Volatility normalization allows the signal strength to reflect *confidence* rather than raw magnitude, which stabilizes behavior across different market regimes.
+Normalizing by volatility allows the signal strength to reflect confidence rather than magnitude.
 
 ---
 
 ### Bollinger Subscore
 
-After computing Bollinger Bands, the strategy determines whether the current regime is mean-reverting or breakout-based by comparing short-term realized volatility to the Bollinger band sigma.
+After computing Bollinger Bands, the strategy dynamically chooses between mean-reversion and breakout behavior using a short-term ratio of realized volatility to band width.
 
-- Low volatility → mean reversion near bands  
-- High volatility → breakout continuation  
+- Low volatility favors mean reversion near the bands  
+- High volatility favors breakout continuation  
 
-**Interpretation:**  
-Bollinger signals are regime-dependent. Treating them as universally mean-reverting leads to predictable failure modes, which this approach explicitly avoids.
+This avoids the common failure mode of treating Bollinger signals as universally mean-reverting.
 
 ---
 
 ### Trend Filter
 
-The slope of the slow EMA is estimated and normalized by volatility, then constrained within a narrow range. This filter does not dominate the macro signal but penalizes counter-trend setups.
+The slope of the slow EMA is estimated and normalized by volatility, then constrained to a narrow range. The trend filter does not dominate the macro signal but penalizes signals that strongly conflict with the prevailing trend.
 
-**Design choice:**  
-The trend filter acts as a stabilizer rather than a driver, preventing large macro allocations against dominant directional flow.
+This acts as a stabilizing force rather than a primary driver.
 
 ---
 
 ### Macro Signal Combination
 
-The raw macro signal is computed as a weighted sum of the subscores, then smoothed:
+The raw macro signal is computed as a weighted sum of the subscores and then smoothed:
 
-\[
+$$
 W_{\text{macro}}(t)
-= s W_{\text{raw}} + (1 - s) W_{\text{macro}}(t - 1)
-\]
+=
+s\,W_{\text{raw}}
++
+(1-s)\,W_{\text{macro}}(t-1)
+$$
 
-Additional logic includes:
-- Dampening counter-trend signals (e.g. multiplying by 0.7)
-- Clamping the result to \([-1, +1]\)
+Counter-trend signals are dampened before smoothing, and the final macro value is clamped to the range $[-1, +1]$.
 
-**Interpretation:**  
-The macro signal is intentionally slow-moving. Excessively reactive macro signals tend to override microstructure logic and degrade execution quality.
+The macro signal is intentionally slow-moving to avoid overriding microstructure logic during short-term fluctuations.
 
 ---
 
@@ -143,106 +150,110 @@ The macro signal is intentionally slow-moving. Excessively reactive macro signal
 The micro signal combines:
 - Weighted order book imbalance
 - Microprice deviation at the touch
-- A confidence scalar based on spread and liquidity
+- A confidence term based on spread and depth
 
 ---
 
 ### Weighted Order Book Imbalance (OBI)
 
-\[
+$$
 \text{OBI}
 =
 \frac{\text{BidVolume} - \text{AskVolume}}
 {\text{BidVolume} + \text{AskVolume}}
-\]
+$$
 
-This value is computed across multiple depth levels, with decreasing weights applied to deeper prices.
+This value is computed across available depth levels, with decreasing weights assigned to liquidity further from the touch.
 
-**Interpretation:**  
-Liquidity further from the touch matters less but still conveys directional pressure, especially during transitions.
+Liquidity farther from the best prices contributes less but still conveys directional pressure.
 
 ---
 
 ### Microprice Deviation
 
-The microprice deviation is computed using the NBBO compared to the mid-price, normalized by the spread.
+The microprice deviation compares the microprice to the mid-price and normalizes the result by the spread.
 
-**Interpretation:**  
-This term captures short-term price pressure while remaining scale-invariant to spread changes.
+This captures short-term price pressure while remaining scale-invariant to spread changes.
 
 ---
 
 ### Confidence Term
 
-A confidence scalar \( c \in [0,1] \) reduces micro influence when:
-- Spread widens
-- Depth thins
-- Order book becomes unstable
+A confidence scalar $c \in [0,1]$ reduces micro influence when:
+- The spread widens
+- The order book becomes thin
+- Liquidity quality deteriorates
 
-Microstructure signals are strongest when liquidity is tight and deep.
+Microstructure signals are most reliable when the book is tight and liquid.
 
 ---
 
 ### Final Micro Alpha
 
-\[
+$$
 A_{\text{micro}}
 =
-\text{clip}\big(
-(0.6 \cdot \text{OBI}
-+ 0.4 \cdot \text{micro\_deviation}) \cdot c,
--1, +1
-\big)
-\]
+\text{clip}\!\left(
+(0.6\,\text{OBI}
++
+0.4\,\text{micro\_deviation})\cdot c,
+-1,\,+1
+\right)
+$$
 
-**Design rationale:**  
-The weighting reflects empirical intuition: imbalance dominates direction, while microprice refines timing.
+The weighting reflects the dominance of imbalance for direction and microprice for timing.
 
 ---
 
-## Bias Blending and Execution
+## Bias Blending and Positioning
 
-The macro and micro signals are linearly blended using parameter \( \alpha \). The resulting bias is converted into a discrete target position via `max_position`.
+The macro and micro signals are blended linearly using parameter $\alpha$. The resulting bias is mapped to a discrete target position using `max_position`.
 
-The strategy continuously rebalances by trading toward the target, subject to a one-contract deadzone.
+The strategy continuously trades toward this target position, subject to a single-contract deadzone.
 
-**Portability note:**  
-The simplicity of the sizing and blending logic makes the strategy easy to test, audit, and port across backtesting and live environments.
+This simplicity improves auditability and portability across backtesting and live environments.
 
 ---
 
 ## Risk Management
 
-While the algorithm is in a position, it is flattened if any of the following occur:
+While the algorithm is in a position, the position is flattened if any of the following conditions are met:
 
 1. Stop loss  
 2. Take profit  
 3. Maximum holding time  
 
-Exit checks occur before retargeting on the same evaluation tick.
+Exit checks occur before any re-targeting on the same evaluation tick.
 
-Additionally, a daily loss limit acts as a global kill-switch.
+A daily loss limit is also included as a global kill-switch.
 
 ---
 
 ### Slippage Modeling
 
-A basic slippage model is included:
-- Buy fills at `ask + slippage_ticks * tick_size`
-- Sell fills at `bid - slippage_ticks * tick_size`
+A basic slippage model is applied:
+- Buy fills occur at  
+  $$
+  \text{ask} + \text{slippage\_ticks}\cdot\text{tick\_size}
+  $$
+- Sell fills occur at  
+  $$
+  \text{bid} - \text{slippage\_ticks}\cdot\text{tick\_size}
+  $$
 
-This ensures conservative performance estimates before accounting for latency.
+This ensures conservative performance estimates prior to accounting for latency.
 
 ---
 
 ## Design Limitations
 
-Known limitations include:
-- Linear blending may underperform in extreme regimes
-- Micro inputs are asset- and day-dependent
-- Aggressive retargeting may cause overtrading
+Several limitations are acknowledged:
 
-These limitations are acknowledged intentionally, with kill-switches used to halt trading under uncertainty rather than force adaptation.
+- Linear blending may underperform in extreme regimes  
+- Microstructure signals are asset- and day-dependent  
+- Aggressive retargeting may cause overtrading  
+
+Kill-switches are used to halt trading when conditions fall outside modeled assumptions rather than forcing adaptation.
 
 ---
 
@@ -259,20 +270,20 @@ on_each_eval_tick(t, book):
     bar = last_completed_bar_at_or_before(t)
     if bar exists and bar.time > latest_bar_time:
         W_raw = macro_signal_from_history(bar_history_up_to(t))
-        W_macro = s*W_raw + (1-s)*W_macro
+        W_macro = s * W_raw + (1 - s) * W_macro
         latest_bar_time = bar.time
 
-    # 2) Micro alpha
+    # 2) Compute micro signal
     OBI = weighted_imbalance(book.depth_levels)
     micro_dev = (microprice(book.bbo) - mid(book.bbo)) / spread(book.bbo)
     c = confidence_from_spread_and_depth(book.bbo)
-    A_micro = clip((0.6*OBI + 0.4*micro_dev)*c, -1, +1)
+    A_micro = clip((0.6 * OBI + 0.4 * micro_dev) * c, -1, +1)
 
-    # 3) Combine & target
-    bias = clip(alpha*W_macro + (1-alpha)*A_micro, -1, +1)
+    # 3) Blend & target
+    bias = clip(alpha * W_macro + (1 - alpha) * A_micro, -1, +1)
     target_pos = round(bias * max_position)
 
-    # 4) Check exits
+    # 4) Exit checks
     if position != 0:
         if stop_loss_hit() or take_profit_hit() or hold_time_exceeded():
             flatten_position()
