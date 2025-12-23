@@ -26,10 +26,7 @@ The algorithm is executed in the following stages:
 3. **Bias Merge**  
    The two signals are linearly combined as follows:  
 
-   bias(t) = clip(  
-   alpha · W_macro(t) + (1 − alpha) · A_micro(t),  
-   −1, +1  
-   )
+   bias(t) = clip( alpha · W_macro(t) + (1 − alpha) · A_micro(t),  −1, +1  )
 
 4. **Bias to Target Position**  
    The bias is converted into a discrete target position:  
@@ -144,10 +141,7 @@ Microstructure signals are most reliable when the order book is tight and liquid
 
 The final micro signal is computed as:
 
-A_micro(t) = clip(  
-(0.6 · OBI + 0.4 · micro_deviation) · c,  
-−1, +1  
-)
+A_micro(t) = clip( (0.6 · OBI + 0.4 · micro_deviation) · c, −1, +1 )
 
 ---
 
